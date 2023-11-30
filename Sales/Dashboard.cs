@@ -50,7 +50,8 @@ namespace Sales
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            POS pos = new POS();
+            pos.Show();
         }
         private void addUser(UserControl userControl)
         {
@@ -82,6 +83,18 @@ namespace Sales
         {
             User us = new User();
             addUser(us);
+        }
+
+        private void btnDelivery_Click(object sender, EventArgs e)
+        {
+            Delivery delivery = new Delivery();
+            addUser(delivery);
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            Inventory inventory = new Inventory();
+            addUser(inventory);
         }
     }
 }

@@ -28,42 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtQuantity = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.numQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numDelID = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblD = new System.Windows.Forms.Label();
             this.lblItemCategory = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateitemDate = new System.Windows.Forms.DateTimePicker();
-            this.numItemID = new System.Windows.Forms.NumericUpDown();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.numDelID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numItemID)).BeginInit();
+            this.dataDelivery = new System.Windows.Forms.DataGridView();
+            this.cmbItmId = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDelivery)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtQuantity
+            // numQuantity
             // 
-            this.txtQuantity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(99, 511);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(284, 32);
-            this.txtQuantity.TabIndex = 41;
+            this.numQuantity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numQuantity.Location = new System.Drawing.Point(52, 483);
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(284, 32);
+            this.numQuantity.TabIndex = 41;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(92, 477);
+            this.label3.Location = new System.Drawing.Point(46, 432);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 34);
             this.label3.TabIndex = 40;
@@ -73,23 +71,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(91, 384);
+            this.label2.Location = new System.Drawing.Point(44, 333);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 34);
             this.label2.TabIndex = 38;
             this.label2.Text = "Item ID";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numDelID
-            // 
-            this.numDelID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numDelID.ForeColor = System.Drawing.Color.White;
-            this.numDelID.Location = new System.Drawing.Point(97, 251);
-            this.numDelID.Name = "numDelID";
-            this.numDelID.Size = new System.Drawing.Size(284, 32);
-            this.numDelID.TabIndex = 37;
             // 
             // btnSave
             // 
@@ -99,166 +89,152 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(160, 587);
+            this.btnSave.Location = new System.Drawing.Point(117, 531);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 44);
             this.btnSave.TabIndex = 36;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(91, 299);
+            this.label1.Location = new System.Drawing.Point(44, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 34);
             this.label1.TabIndex = 34;
             this.label1.Text = "Date";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblD
-            // 
-            this.lblD.AutoSize = true;
-            this.lblD.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblD.ForeColor = System.Drawing.Color.White;
-            this.lblD.Location = new System.Drawing.Point(91, 214);
-            this.lblD.Name = "lblD";
-            this.lblD.Size = new System.Drawing.Size(162, 34);
-            this.lblD.TabIndex = 33;
-            this.lblD.Text = "Delivery ID";
-            this.lblD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblItemCategory
             // 
             this.lblItemCategory.AutoSize = true;
+            this.lblItemCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblItemCategory.Font = new System.Drawing.Font("Century Gothic", 43.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemCategory.ForeColor = System.Drawing.Color.White;
-            this.lblItemCategory.Location = new System.Drawing.Point(60, 119);
+            this.lblItemCategory.Location = new System.Drawing.Point(3, 131);
             this.lblItemCategory.Name = "lblItemCategory";
             this.lblItemCategory.Size = new System.Drawing.Size(354, 85);
             this.lblItemCategory.TabIndex = 32;
             this.lblItemCategory.Text = "DELIVERY";
             this.lblItemCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column5,
-            this.Column6,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(464, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridView1.Size = new System.Drawing.Size(577, 551);
-            this.dataGridView1.TabIndex = 31;
-            // 
             // dateitemDate
             // 
             this.dateitemDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateitemDate.Location = new System.Drawing.Point(98, 336);
+            this.dateitemDate.Location = new System.Drawing.Point(50, 284);
             this.dateitemDate.Name = "dateitemDate";
-            this.dateitemDate.Size = new System.Drawing.Size(284, 32);
+            this.dateitemDate.Size = new System.Drawing.Size(286, 32);
             this.dateitemDate.TabIndex = 42;
             // 
-            // numItemID
+            // dataDelivery
             // 
-            this.numItemID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numItemID.ForeColor = System.Drawing.Color.White;
-            this.numItemID.Location = new System.Drawing.Point(97, 421);
-            this.numItemID.Name = "numItemID";
-            this.numItemID.Size = new System.Drawing.Size(284, 32);
-            this.numItemID.TabIndex = 43;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
+            this.dataDelivery.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataDelivery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataDelivery.BackgroundColor = System.Drawing.Color.White;
+            this.dataDelivery.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataDelivery.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDelivery.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataDelivery.Location = new System.Drawing.Point(429, 207);
+            this.dataDelivery.Name = "dataDelivery";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDelivery.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataDelivery.RowHeadersVisible = false;
+            this.dataDelivery.RowHeadersWidth = 51;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            this.dataDelivery.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataDelivery.RowTemplate.Height = 24;
+            this.dataDelivery.Size = new System.Drawing.Size(591, 283);
+            this.dataDelivery.TabIndex = 44;
             // 
-            // Column1
+            // cmbItmId
             // 
-            this.Column1.HeaderText = "Delivery ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.cmbItmId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItmId.FormattingEnabled = true;
+            this.cmbItmId.Location = new System.Drawing.Point(52, 384);
+            this.cmbItmId.Name = "cmbItmId";
+            this.cmbItmId.Size = new System.Drawing.Size(284, 31);
+            this.cmbItmId.TabIndex = 45;
             // 
-            // Column2
+            // panel1
             // 
-            this.Column2.HeaderText = "Date";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Item ID";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Quantity";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Edit";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Delete";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.cmbItmId);
+            this.panel1.Controls.Add(this.lblItemCategory);
+            this.panel1.Controls.Add(this.dataDelivery);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dateitemDate);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.numQuantity);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(22, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1056, 738);
+            this.panel1.TabIndex = 46;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Delivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.numItemID);
-            this.Controls.Add(this.dateitemDate);
-            this.Controls.Add(this.txtQuantity);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numDelID);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblD);
-            this.Controls.Add(this.lblItemCategory);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.Name = "Delivery";
             this.Size = new System.Drawing.Size(1100, 788);
-            ((System.ComponentModel.ISupportInitialize)(this.numDelID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numItemID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDelivery)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox numQuantity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numDelID;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblD;
         private System.Windows.Forms.Label lblItemCategory;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateitemDate;
-        private System.Windows.Forms.NumericUpDown numItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewImageColumn Column3;
-        private System.Windows.Forms.DataGridViewImageColumn Column4;
+        private System.Windows.Forms.DataGridView dataDelivery;
+        private System.Windows.Forms.ComboBox cmbItmId;
+        private System.Windows.Forms.Panel panel1;
     }
 }

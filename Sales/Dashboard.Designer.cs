@@ -38,14 +38,14 @@
             this.btnMain = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnItems = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnInventory = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDelivery = new System.Windows.Forms.Button();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,9 +53,9 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.SubMain.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,6 +142,7 @@
             // btnMain
             // 
             this.btnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMain.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMain.FlatAppearance.BorderSize = 0;
             this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
@@ -199,62 +200,14 @@
             this.btnItems.UseVisualStyleBackColor = false;
             this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
             // 
-            // button3
+            // panel3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Window;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(246, 74);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Inventory";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(246, 74);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Delivery";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(246, 74);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Sales";
-            this.button5.UseVisualStyleBackColor = false;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Location = new System.Drawing.Point(3, 304);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(240, 74);
+            this.panel3.TabIndex = 2;
             // 
             // button2
             // 
@@ -277,24 +230,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(3, 304);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(240, 74);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Location = new System.Drawing.Point(3, 544);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(240, 74);
-            this.panel4.TabIndex = 3;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
@@ -304,14 +239,85 @@
             this.panel5.Size = new System.Drawing.Size(240, 74);
             this.panel5.TabIndex = 4;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(0, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(246, 74);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Sales";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.button3);
+            this.panel6.Controls.Add(this.btnInventory);
             this.panel6.Location = new System.Drawing.Point(3, 464);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(240, 74);
             this.panel6.TabIndex = 5;
+            // 
+            // btnInventory
+            // 
+            this.btnInventory.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnInventory.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnInventory.FlatAppearance.BorderSize = 0;
+            this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
+            this.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventory.Location = new System.Drawing.Point(0, 0);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(246, 74);
+            this.btnInventory.TabIndex = 3;
+            this.btnInventory.Text = "Inventory";
+            this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.btnDelivery);
+            this.panel4.Location = new System.Drawing.Point(3, 544);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(240, 74);
+            this.panel4.TabIndex = 3;
+            // 
+            // btnDelivery
+            // 
+            this.btnDelivery.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelivery.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelivery.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDelivery.FlatAppearance.BorderSize = 0;
+            this.btnDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelivery.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelivery.ForeColor = System.Drawing.Color.White;
+            this.btnDelivery.Image = ((System.Drawing.Image)(resources.GetObject("btnDelivery.Image")));
+            this.btnDelivery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelivery.Location = new System.Drawing.Point(0, 0);
+            this.btnDelivery.Name = "btnDelivery";
+            this.btnDelivery.Size = new System.Drawing.Size(246, 74);
+            this.btnDelivery.TabIndex = 4;
+            this.btnDelivery.Text = "Delivery";
+            this.btnDelivery.UseVisualStyleBackColor = false;
+            this.btnDelivery.Click += new System.EventHandler(this.btnDelivery_Click);
             // 
             // MainTimer
             // 
@@ -357,9 +363,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.SubMain.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();
             this.ResumeLayout(false);
@@ -370,8 +376,8 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnInventory;
+        private System.Windows.Forms.Button btnDelivery;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel3;
