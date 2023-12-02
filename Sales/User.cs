@@ -57,40 +57,46 @@ namespace Sales
 
                 try
                 {
-                    if ((txtUser.Text.Equals("") || txtPass.Text.Equals("")))
+                    if (string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(txtPass.Text))
                     {
                         MessageBox.Show("Please Input Fields!");
                         return;
                     }
+
+                    if (!update)
+                    {
+                      
+                        cmd.CommandText = "UPDATE tblUser SET userName = '" + txtUser.Text + "', userPass = '" + txtPass.Text + "' WHERE userName = '" + txtUname.Text + "'";
+                        MessageBox.Show("User Updated!");
+                        txtUname.Clear();
+                    }
                     else
                     {
-                        if (!update)
-                        {
-                            cmd.CommandText = "UPDATE tblUser SET userName = '"+txtUser.Text+"', userPass = '"+txtPass.Text+"' WHERE userName = '"+txtUname.Text +"'";
-                            MessageBox.Show("User Updated!");
-                        }
-                        else
-                        {
-                            cmd.CommandText = "INSERT INTO tblUser(userName, userPass) VALUES ('" + txtUser.Text + "','" + txtPass.Text + "')";
-                            MessageBox.Show("Success Query!");
-                        } 
-                        cmd.ExecuteNonQuery();
-                        txtUser.Clear();
-                        txtPass.Clear();
-                        txtUser.Focus();
-                        showUser();
-                        update = true;
-                        delete = true;
+                   
+                        cmd.CommandText = "INSERT INTO tblUser(userName, userPass) VALUES ('" + txtUser.Text + "','" + txtPass.Text + "')";
+                        MessageBox.Show("Success Query!");
                     }
 
-                }
-                catch (Exception z)
-                {
-                    MessageBox.Show(z.Message);
+                    cmd.ExecuteNonQuery();
 
+                   
+                    txtUser.Clear();
+                    txtPass.Clear();
+                    txtUser.Focus();
+
+                
+                    showUser();
+
+                    update = true;
+                    delete = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -100,8 +106,19 @@ namespace Sales
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete = false;
-            panel5.Visible=true;
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                delete = false;
+                panel5.Visible = true;
+            }
+            else
+            {
+                return;
+            }
+           
+        
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -114,6 +131,7 @@ namespace Sales
         private void btnEnter_Click(object sender, EventArgs e)
         {
             panel5.Visible = false;
+
             if (!delete)
             {
                 using (MySqlConnection connection = new MySqlConnection(Login.con))
@@ -121,22 +139,23 @@ namespace Sales
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
                     cmd.Connection = connection;
+
                     try
                     {
-                        
                         cmd.CommandText = "DELETE FROM tblUser WHERE userName = '" + txtUname.Text + "'";
                         MessageBox.Show("User Deleted!");
                         cmd.ExecuteNonQuery();
                         delete = true;
                         showUser();
+                        txtUname.Clear();
                     }
-                    catch (Exception z)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show(z.Message);
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                    
             }
         }
+
     }
 }

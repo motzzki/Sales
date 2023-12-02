@@ -47,7 +47,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDelivery = new System.Windows.Forms.Button();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
@@ -61,6 +60,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScrollMargin = new System.Drawing.Size(100, 0);
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.SubMain);
@@ -391,7 +391,6 @@
         private System.Windows.Forms.Button btnItems;
         private System.Windows.Forms.Button btnSupplier;
         private System.Windows.Forms.Timer MainTimer;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelContent;
     }

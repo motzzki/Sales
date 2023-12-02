@@ -67,7 +67,7 @@ namespace Sales
 
                 try
                 {
-                    if (txtCatName.Text.Equals(""))
+                    if (string.IsNullOrEmpty(txtCatName.Text))
                     {
                         MessageBox.Show("Please Input Fields!");
                         return;
@@ -77,8 +77,9 @@ namespace Sales
 
                         if (!update)
                         {
-                            cmd.CommandText = "UPDATE tblItemCategory SET categoryName = '" + txtCatName.Text + "' WHERE categoryName = '" + txtUname.Text + "'";
+                            cmd.CommandText = "UPDATE tblItemCategory SET categoryName = '" + txtCatName.Text + "' WHERE categoryName = '" + txtNameCat.Text + "'";
                             MessageBox.Show("Category Updated!");
+                            txtNameCat.Clear();
                         }
                         else
                         {
@@ -87,7 +88,7 @@ namespace Sales
                         }
                         cmd.ExecuteNonQuery();
                         txtCatName.Clear();
-                        txtUname.Clear();
+                        txtNameCat.Clear();
                         txtCatName.Focus();
                         showCategory();
                         update = true;
@@ -112,8 +113,17 @@ namespace Sales
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete = false;
-            panel5.Visible = true;
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                delete = false;
+                panel5.Visible = true;
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -136,7 +146,7 @@ namespace Sales
                     try
                     {
                         
-                        cmd.CommandText = "DELETE FROM tblItemCategory WHERE categoryName = '" + txtUname.Text + "'";
+                        cmd.CommandText = "DELETE FROM tblItemCategory WHERE categoryName = '" + txtNameCat.Text + "'";
                         MessageBox.Show("User Deleted!");
                         cmd.ExecuteNonQuery();
                         delete = true;

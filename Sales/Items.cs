@@ -152,45 +152,51 @@ namespace Sales
 
                 try
                 {
-                    if (txtItemName.Text.Equals("") || txtPrice.Text.Equals(""))
+                    if (string.IsNullOrEmpty(txtItemName.Text) || string.IsNullOrEmpty(txtPrice.Text))
                     {
                         MessageBox.Show("Please Input Fields!");
                         return;
                     }
+
+                    if (!update)
+                    {
+                        // Update existing item
+                        cmd.CommandText = "UPDATE tblItems SET itemName = '" + txtItemName.Text + "', supplier_id = '" + cbSupId.Text + "', category_id = " + cbCatId.Text + ", base_price = " + txtPrice.Text + ", itemImg = @image WHERE itemId = " + txtItemID.Text + "";
+                        MessageBox.Show("Item Updated!");
+                        txtItemID.Clear();
+                    }
                     else
                     {
-                        if (!update)
-                        {
-                            cmd.CommandText = "UPDATE tblItems SET itemName = '" + txtItemName.Text + "', supplier_id = '" + cbSupId.Text + "', category_id = " + cbCatId.Text + ", base_price = " + txtPrice.Text + ",itemImg = @image WHERE itemId = " + txtItemID.Text + "";
-                            MessageBox.Show("Item Updated!");
-                        }
-                        else
-                        {
-                            cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "', " + cbSupId.Text + ", " + cbCatId.Text + ", " + txtPrice.Text + ", @image)";
-
-                            MessageBox.Show("Success Query!");
-                        }
-                        cmd.Parameters.AddWithValue("@image", img_arr);
-                        cmd.ExecuteNonQuery();
-                        txtItemName.Clear();
-                        cbSupId.SelectedIndex = -1;
-                        cbCatId.SelectedIndex = -1;
-                        txtPrice.Clear();
-                        txtItemID.Focus();
-                        showItems();
-                        update = true;
-                        delete = true;
-                        showItems();
-                        lblCatname.Text = " ";
-                        //Inventory.ShowAllItems();
+                        // Insert new item
+                        cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "', " + cbSupId.Text + ", " + cbCatId.Text + ", " + txtPrice.Text + ", @image)";
+                        MessageBox.Show("Success Query!");
                     }
+
+                    cmd.Parameters.AddWithValue("@image", img_arr);
+                    cmd.ExecuteNonQuery();
+
+                    // Clear input fields
+                    txtItemName.Clear();
+                    cbSupId.SelectedIndex = -1;
+                    cbCatId.SelectedIndex = -1;
+                    txtPrice.Clear();
+                    txtItemID.Focus();
+
+                    // Display updated item list
+                    showItems();
+
+                    update = true;
+                    delete = true;
+                    showItems();
+                    lblCatname.Text = " ";
                 }
-                catch (Exception z)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(z.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
+
 
         private void cbCatId_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -223,10 +229,6 @@ namespace Sales
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
@@ -264,8 +266,17 @@ namespace Sales
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete = false;
-            panel5.Visible = true;
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                delete = false;
+                panel5.Visible = true;
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

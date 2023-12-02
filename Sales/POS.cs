@@ -14,6 +14,8 @@ namespace Sales
 {
     public partial class POS : Form
     {
+        Inventory inventory = new Inventory();
+
         public POS()
         {
             InitializeComponent();
@@ -69,9 +71,9 @@ namespace Sales
                                 Font = new Font("Century Gothic", 12),
                                 ForeColor = Color.FromArgb(228, 143, 69),
                                 AutoSize = false,
-                                Size = new Size(100,68)
+                                Size = new Size(100, 68)
                             };
-                            
+
 
                             Label bp = new Label
                             {
@@ -89,12 +91,12 @@ namespace Sales
                             container.Controls.Add(label);
                             container.Controls.Add(bp);
 
-                           label.BringToFront();
+                            label.BringToFront();
                             bp.BringToFront();
                             // Add the container to the tableLayoutPanelItems
                             tableLayoutPanelItems.Controls.Add(container);
 
-                           
+
                         }
                     }
                 }
@@ -124,46 +126,62 @@ namespace Sales
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             this.Hide();
+            inventory.showInventory();
         }
 
 
         private void btnAdd2Cart_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection connection = new MySqlConnection(Login.con))
+            try
             {
-
-           
-                try
+                using (MySqlConnection connection = new MySqlConnection(Login.con))
                 {
                     connection.Open();
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "SELECT quantity FROM tblInventory WHERE item_id = '" + cbItemId.Text + "'";
-                    int checkQuantity = Convert.ToInt32(cmd.ExecuteScalar());
 
-              
-                    if(checkQuantity < Convert.ToInt32(numQuantity.Text))
+                    // Check available quantity
+                    using (MySqlCommand checkQuantityCmd = connection.CreateCommand())
                     {
-                        MessageBox.Show("Not Enough Stock!");
-                        return;
+                        checkQuantityCmd.CommandText = "SELECT quantity FROM tblInventory WHERE item_id = '" + cbItemId.Text + "'";
+                        int checkQuantity = Convert.ToInt32(checkQuantityCmd.ExecuteScalar());
+
+                        if (checkQuantity < Convert.ToInt32(numQuantity.Text))
+                        {
+                            MessageBox.Show("Not Enough Stock!");
+                            return;
+                        }
                     }
-                    else
+
+                    // Add to cart
+                    using (MySqlCommand addToCartCmd = connection.CreateCommand())
                     {
-                        cmd.CommandText = "INSERT INTO tblCart(item_name,quantity, basePrice, total_price) VALUES ('" + txtPName.Text + "', " + numQuantity.Text + ", (select base_price from tblItems where itemName = '" + txtPName.Text + "'), (" + numQuantity.Text + " * basePrice))";
-                        cmd.ExecuteNonQuery();
+                        addToCartCmd.CommandText = "INSERT INTO tblCart(item_name, quantity, basePrice, total_price) " +
+                                                  "VALUES ('" + txtPName.Text + "', " + numQuantity.Text + ", " +
+                                                  "(SELECT base_price FROM tblItems WHERE itemName = '" + txtPName.Text + "'), " +
+                                                  "(" + numQuantity.Text + " * basePrice))";
+                        addToCartCmd.ExecuteNonQuery();
                     }
-                    
-                    cmd.CommandText = "SELECT SUM(total_price) AS total_sum FROM tblCart";
-                    object result = cmd.ExecuteScalar();
-                    MessageBox.Show("Success Query!");
-                    showtblCart();
-                    lblTotal.Text = "₱" + Convert.ToDecimal(result).ToString();
-                }
-                catch(Exception z)
-                {
-                    MessageBox.Show(z.Message);
+
+                    // Calculate total price
+                    using (MySqlCommand calculateTotalCmd = connection.CreateCommand())
+                    {
+                        calculateTotalCmd.CommandText = "SELECT SUM(total_price) AS total_sum FROM tblCart";
+                        object result = calculateTotalCmd.ExecuteScalar();
+                        MessageBox.Show("Success Query!");
+                        showtblCart();
+                        lblTotal.Text = Convert.ToDecimal(result).ToString();
+                    }
+                    cbItemId.SelectedIndex = -1;
+                    numQuantity.Value = numQuantity.Minimum;
+
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+
 
         public void showtblCart()
         {
@@ -260,26 +278,60 @@ namespace Sales
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection connection = new MySqlConnection(Login.con))
+
+            try
             {
-                try
+                using (MySqlConnection connection = new MySqlConnection(Login.con))
                 {
                     connection.Open();
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "DELETE FROM tblCart;";
-                    cmd.ExecuteNonQuery();
+
+                    using (MySqlCommand checkCartCmd = connection.CreateCommand())
+                    {
+                        checkCartCmd.CommandText = "SELECT COUNT(*) FROM tblCart";
+                        int cartItemCount = Convert.ToInt32(checkCartCmd.ExecuteScalar());
+
+                        if (cartItemCount == 0)
+                        {
+                            MessageBox.Show("Cart is empty. Please add items to the cart before placing an order.");
+                            return; 
+                        }
+                    }
+
+
+                    using (MySqlCommand clearCartCmd = connection.CreateCommand())
+                    {
+                        clearCartCmd.CommandText = "DELETE FROM tblCart;";
+                        clearCartCmd.ExecuteNonQuery();
+                    }
+
                     MessageBox.Show("Order Placed!");
-                    lblTotal.Text = "";
+
                     showtblCart();
-                    cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + numQuantity.Text + " WHERE item_id = '" + cbItemId.Text + "'";
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception z)
-                {
-                    MessageBox.Show(z.Message);
+
+                    using (MySqlCommand updateInventoryCmd = connection.CreateCommand())
+                    {
+                        updateInventoryCmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + numQuantity.Text + " WHERE item_id = " + cbItemId.Text;
+
+                        updateInventoryCmd.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand insertToSalescmd = connection.CreateCommand())
+                    {
+                        string date = DateTime.Now.ToString("yyyy-MM-dd");
+                        insertToSalescmd.CommandText = "INSERT INTO tblSales (receiptDate, item_id, quantity, total_amount) VALUES ('" + date + "', " + cbItemId.Text + ", " + numQuantity.Text + ", " + lblTotal.Text + ")";
+                        insertToSalescmd.ExecuteNonQuery();
+                    }
+                    lblTotal.Text = "";
+                    cbItemId.SelectedIndex = -1;
+                    numQuantity.Value = numQuantity.Minimum;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         void showNameAndId()
         {
@@ -324,5 +376,7 @@ namespace Sales
                 txtPName.Text = selectedRow["itemName"].ToString();
             }
         }
+
+
     }
 }

@@ -17,6 +17,11 @@ namespace Sales
         {
             InitializeComponent();
             Maincollapse = true;
+            btnUser.Cursor = Cursors.Hand;
+            btnSupplier.Cursor = Cursors.Hand;
+            btnCategory.Cursor = Cursors.Hand;
+            btnItems.Cursor = Cursors.Hand;
+            
         }
 
        
@@ -96,5 +101,7 @@ namespace Sales
             Inventory inventory = new Inventory();
             addUser(inventory);
         }
+
+        
     }
 }

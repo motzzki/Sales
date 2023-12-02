@@ -49,7 +49,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.txtUname = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataSupplier)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -58,6 +58,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Chocolate;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Chocolate;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -193,6 +194,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dataSupplier.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataSupplier.RowTemplate.Height = 24;
+            this.dataSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataSupplier.Size = new System.Drawing.Size(472, 548);
             this.dataSupplier.TabIndex = 31;
             // 
@@ -215,6 +217,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
@@ -229,6 +232,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
@@ -246,7 +250,7 @@
             this.panel5.Controls.Add(this.btnCancel);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.btnEnter);
-            this.panel5.Controls.Add(this.txtUname);
+            this.panel5.Controls.Add(this.txtId);
             this.panel5.Location = new System.Drawing.Point(406, 308);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(288, 173);
@@ -256,6 +260,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Chocolate;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
@@ -281,6 +286,7 @@
             // btnEnter
             // 
             this.btnEnter.BackColor = System.Drawing.Color.Chocolate;
+            this.btnEnter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
@@ -292,13 +298,13 @@
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // txtUname
+            // txtId
             // 
-            this.txtUname.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUname.Location = new System.Drawing.Point(54, 55);
-            this.txtUname.Name = "txtUname";
-            this.txtUname.Size = new System.Drawing.Size(185, 23);
-            this.txtUname.TabIndex = 0;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(54, 55);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(185, 23);
+            this.txtId.TabIndex = 0;
             // 
             // Supplier
             // 
@@ -336,7 +342,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.TextBox txtUname;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnCancel;
     }
 }

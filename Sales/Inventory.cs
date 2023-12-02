@@ -32,7 +32,7 @@ namespace Sales
             }
         }
 
-        void showInventory()
+        public void showInventory()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {

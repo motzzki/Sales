@@ -21,9 +21,9 @@ namespace Sales
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
 
-     
 
-       /* void Connect()
+
+        /*void Connect()
         {
             con = "Server=localhost;Database=dbsales;User=root;Password=root;";
 
@@ -87,9 +87,10 @@ namespace Sales
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Connect();
+            // Connect();
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
+
         }
     }
 }

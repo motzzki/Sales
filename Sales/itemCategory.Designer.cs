@@ -43,7 +43,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.txtUname = new System.Windows.Forms.TextBox();
+            this.txtNameCat = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataCategory)).BeginInit();
@@ -54,6 +54,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Chocolate;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Chocolate;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,6 +104,8 @@
             // 
             // dataCategory
             // 
+            this.dataCategory.AllowUserToResizeColumns = false;
+            this.dataCategory.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,6 +134,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataCategory.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataCategory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataCategory.Location = new System.Drawing.Point(587, 105);
             this.dataCategory.Name = "dataCategory";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -148,6 +152,7 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.dataCategory.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataCategory.RowTemplate.Height = 24;
+            this.dataCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataCategory.Size = new System.Drawing.Size(472, 548);
             this.dataCategory.TabIndex = 18;
             // 
@@ -169,7 +174,7 @@
             this.panel5.Controls.Add(this.btnCancel);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.btnEnter);
-            this.panel5.Controls.Add(this.txtUname);
+            this.panel5.Controls.Add(this.txtNameCat);
             this.panel5.Location = new System.Drawing.Point(406, 308);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(288, 173);
@@ -179,6 +184,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Chocolate;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
@@ -204,6 +210,7 @@
             // btnEnter
             // 
             this.btnEnter.BackColor = System.Drawing.Color.Chocolate;
+            this.btnEnter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
@@ -215,17 +222,18 @@
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // txtUname
+            // txtNameCat
             // 
-            this.txtUname.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            this.txtUname.Location = new System.Drawing.Point(41, 62);
-            this.txtUname.Name = "txtUname";
-            this.txtUname.Size = new System.Drawing.Size(196, 23);
-            this.txtUname.TabIndex = 0;
+            this.txtNameCat.Font = new System.Drawing.Font("Century Gothic", 7.8F);
+            this.txtNameCat.Location = new System.Drawing.Point(41, 62);
+            this.txtNameCat.Name = "txtNameCat";
+            this.txtNameCat.Size = new System.Drawing.Size(196, 23);
+            this.txtNameCat.TabIndex = 0;
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
@@ -240,6 +248,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
@@ -284,7 +293,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.TextBox txtUname;
+        private System.Windows.Forms.TextBox txtNameCat;
         private System.Windows.Forms.Button btnCancel;
     }
 }

@@ -41,6 +41,7 @@
             this.tableCart = new System.Windows.Forms.TableLayoutPanel();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,14 +50,13 @@
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnAdd2Cart = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.cbItemId = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtPName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelItems = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.cbItemId = new System.Windows.Forms.ComboBox();
-            this.txtPName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -220,6 +220,7 @@
             // btnPlaceOrder
             // 
             this.btnPlaceOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            this.btnPlaceOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlaceOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(212)))), ((int)(((byte)(255)))));
             this.btnPlaceOrder.FlatAppearance.BorderSize = 2;
             this.btnPlaceOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -242,6 +243,15 @@
             this.panel6.Size = new System.Drawing.Size(307, 96);
             this.panel6.TabIndex = 4;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.lblTotal.Location = new System.Drawing.Point(110, 56);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(97, 23);
+            this.lblTotal.TabIndex = 3;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -249,9 +259,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.label7.Location = new System.Drawing.Point(6, 56);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 23);
+            this.label7.Size = new System.Drawing.Size(79, 23);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Total:";
+            this.label7.Text = "Total: ₱";
             // 
             // panel5
             // 
@@ -336,6 +346,16 @@
             this.panel7.Size = new System.Drawing.Size(831, 225);
             this.panel7.TabIndex = 4;
             // 
+            // cbItemId
+            // 
+            this.cbItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbItemId.FormattingEnabled = true;
+            this.cbItemId.Location = new System.Drawing.Point(347, 43);
+            this.cbItemId.Name = "cbItemId";
+            this.cbItemId.Size = new System.Drawing.Size(121, 28);
+            this.cbItemId.TabIndex = 5;
+            this.cbItemId.SelectedIndexChanged += new System.EventHandler(this.cbItemId_SelectedIndexChanged);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -346,6 +366,16 @@
             this.label9.Size = new System.Drawing.Size(98, 23);
             this.label9.TabIndex = 4;
             this.label9.Text = "Quantity:";
+            // 
+            // txtPName
+            // 
+            this.txtPName.AutoSize = true;
+            this.txtPName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            this.txtPName.Location = new System.Drawing.Point(506, 43);
+            this.txtPName.Name = "txtPName";
+            this.txtPName.Size = new System.Drawing.Size(0, 23);
+            this.txtPName.TabIndex = 3;
             // 
             // label8
             // 
@@ -392,35 +422,6 @@
             this.tableLayoutPanelItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelItems.Size = new System.Drawing.Size(828, 443);
             this.tableLayoutPanelItems.TabIndex = 0;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.lblTotal.Location = new System.Drawing.Point(66, 57);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(207, 23);
-            this.lblTotal.TabIndex = 3;
-            // 
-            // cbItemId
-            // 
-            this.cbItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbItemId.FormattingEnabled = true;
-            this.cbItemId.Location = new System.Drawing.Point(347, 43);
-            this.cbItemId.Name = "cbItemId";
-            this.cbItemId.Size = new System.Drawing.Size(121, 28);
-            this.cbItemId.TabIndex = 5;
-            this.cbItemId.SelectedIndexChanged += new System.EventHandler(this.cbItemId_SelectedIndexChanged);
-            // 
-            // txtPName
-            // 
-            this.txtPName.AutoSize = true;
-            this.txtPName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.txtPName.Location = new System.Drawing.Point(506, 43);
-            this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(0, 23);
-            this.txtPName.TabIndex = 3;
             // 
             // POS
             // 

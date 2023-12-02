@@ -77,8 +77,9 @@ namespace Sales
                     {
                         if (!update)
                         {
-                            cmd.CommandText = "UPDATE tblSupplier SET supplierName = '" + txtSupplierName.Text + "', address = '"+txtAddress.Text+"', contactNum = "+txtContact.Text+" WHERE supplierId = " + txtUname.Text + "";
+                            cmd.CommandText = "UPDATE tblSupplier SET supplierName = '" + txtSupplierName.Text + "', address = '"+txtAddress.Text+"', contactNum = "+txtContact.Text+" WHERE supplierId = " + txtId.Text + "";
                             MessageBox.Show("Supplier Updated!");
+                            txtId.Clear();
                         }
                         else
                         {
@@ -89,7 +90,6 @@ namespace Sales
                         txtSupplierName.Clear();
                         txtAddress.Clear();
                         txtContact.Clear();
-                        txtUname.Clear();
                         txtSupplierName.Focus();
                         showSupplier();
                         update = true;
@@ -114,8 +114,16 @@ namespace Sales
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            delete = false;
-            panel5.Visible = true;
+            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                delete = false;
+                panel5.Visible = true;
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -137,7 +145,7 @@ namespace Sales
                         cmd.Connection = connection;
                     try
                     {
-                        cmd.CommandText = "DELETE FROM tblSupplier WHERE supplierId = " + txtUname.Text + "";
+                        cmd.CommandText = "DELETE FROM tblSupplier WHERE supplierId = " + txtId.Text + "";
                         MessageBox.Show("Supplier Deleted!");
                         cmd.ExecuteNonQuery();
                         delete = true;

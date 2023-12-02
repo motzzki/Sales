@@ -130,7 +130,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataInventory;
+        public System.Windows.Forms.DataGridView dataInventory;
         private System.Windows.Forms.Panel panel1;
     }
 }
