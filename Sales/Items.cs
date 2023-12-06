@@ -13,8 +13,8 @@ namespace Sales
 {
     public partial class Items : UserControl
     {
+        private Boolean update, delete;
 
-        Boolean update, delete;
         public Items()
         {
             InitializeComponent();
@@ -30,7 +30,6 @@ namespace Sales
                     showItems();
                     showSupplierId();
                     showNameAndId();
-
                 }
                 catch
                 {
@@ -39,7 +38,7 @@ namespace Sales
             }
         }
 
-        void showItems()
+        private void showItems()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -60,7 +59,7 @@ namespace Sales
             }
         }
 
-        void showNameAndId()
+        private void showNameAndId()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -95,7 +94,7 @@ namespace Sales
             }
         }
 
-        void showSupplierId()
+        private void showSupplierId()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -119,7 +118,6 @@ namespace Sales
                             // Set the DataSource and configure display and value members
                             cbSupId.DataSource = table;
                             cbSupId.DisplayMember = "supplierId";
-                            
                         }
                     }
                 }
@@ -128,7 +126,6 @@ namespace Sales
                     MessageBox.Show(ex.Message);
                 }
             }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -197,7 +194,6 @@ namespace Sales
             }
         }
 
-
         private void cbCatId_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataRowView selectedRow = (DataRowView)cbCatId.SelectedItem;
@@ -229,7 +225,6 @@ namespace Sales
             }
         }
 
-
         private void btnEnter_Click(object sender, EventArgs e)
         {
             panel5.Visible = false;
@@ -253,7 +248,6 @@ namespace Sales
                         MessageBox.Show(z.Message);
                     }
                 }
-
             }
         }
 
@@ -266,7 +260,6 @@ namespace Sales
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
             DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

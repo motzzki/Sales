@@ -13,18 +13,18 @@ namespace Sales
 {
     public partial class User : UserControl
     {
-        Boolean update, delete;
+        private bool update = false, delete = false;
+        private int indexRow;
+
         public User()
         {
             InitializeComponent();
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
-            panel4.BackColor = Color.FromArgb(180,0,0,0);
+            panel4.BackColor = Color.FromArgb(180, 0, 0, 0);
             showUser();
-            update = true;
-            delete = true;
         }
 
-        void showUser()
+        private void showUser()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -32,13 +32,11 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select userName as USERNAME, userPass as PASSWORD From tblUser";
+                    cmd.CommandText = "Select userId as ID, userName as USERNAME, userPass as PASSWORD From tblUser";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
                     dataUser.DataSource = ds.Tables[0].DefaultView;
-
-
                 }
                 catch (Exception e)
                 {
@@ -54,6 +52,7 @@ namespace Sales
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.Connection = connection;
+                int selectedUser = GetSelectedUserId();
 
                 try
                 {
@@ -63,32 +62,27 @@ namespace Sales
                         return;
                     }
 
-                    if (!update)
+                    if (update == false)
                     {
-                      
-                        cmd.CommandText = "UPDATE tblUser SET userName = '" + txtUser.Text + "', userPass = '" + txtPass.Text + "' WHERE userName = '" + txtUname.Text + "'";
-                        MessageBox.Show("User Updated!");
-                        txtUname.Clear();
+                        cmd.CommandText = "INSERT INTO tblUser(userName, userPass) VALUES ('" + txtUser.Text + "','" + txtPass.Text + "')";
+                        MessageBox.Show("Insert Successfull!");
                     }
                     else
                     {
-                   
-                        cmd.CommandText = "INSERT INTO tblUser(userName, userPass) VALUES ('" + txtUser.Text + "','" + txtPass.Text + "')";
-                        MessageBox.Show("Success Query!");
+                        cmd.CommandText = "UPDATE tblUser SET userName = '" + txtUser.Text + "', userPass = '" + txtPass.Text + "' WHERE userId = " + selectedUser + "";
+                        MessageBox.Show("User Updated!");
                     }
 
                     cmd.ExecuteNonQuery();
 
-                   
                     txtUser.Clear();
                     txtPass.Clear();
                     txtUser.Focus();
+                    dataUser.Enabled = false;
 
-                
                     showUser();
 
                     update = true;
-                    delete = true;
                 }
                 catch (Exception ex)
                 {
@@ -97,65 +91,36 @@ namespace Sales
             }
         }
 
+        public int GetSelectedUserId()
+        {
+            if (dataUser.SelectedRows.Count > 0)
+            {
+                return Convert.ToInt32(dataUser.SelectedRows[0].Cells["ID"].Value);
+            }
+            else
+            {
+                return -1;
+            }
+        }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            panel5.Visible = true;
-            update = false;
+            MessageBox.Show("Updating User, Please Select Desired Row", "Message");
+            update = true;
+            dataUser.Enabled = true;
+        }
+
+        private void dataUser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            indexRow = e.RowIndex;
+            DataGridViewRow row = dataUser.Rows[indexRow];
+
+            txtUser.Text = row.Cells[1].Value.ToString();
+            txtPass.Text = row.Cells[2].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
-            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
-            {
-                delete = false;
-                panel5.Visible = true;
-            }
-            else
-            {
-                return;
-            }
-           
-        
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            panel5.Visible = false;
-            update = true;
-            delete = true;
-        }
-
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
-            panel5.Visible = false;
-
-            if (!delete)
-            {
-                using (MySqlConnection connection = new MySqlConnection(Login.con))
-                {
-                    connection.Open();
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.Connection = connection;
-
-                    try
-                    {
-                        cmd.CommandText = "DELETE FROM tblUser WHERE userName = '" + txtUname.Text + "'";
-                        MessageBox.Show("User Deleted!");
-                        cmd.ExecuteNonQuery();
-                        delete = true;
-                        showUser();
-                        txtUname.Clear();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-            }
-        }
-
     }
 }

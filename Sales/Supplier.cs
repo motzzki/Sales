@@ -13,11 +13,12 @@ namespace Sales
 {
     public partial class Supplier : UserControl
     {
-        Boolean update, delete;
+        private Boolean update, delete;
+
         public Supplier()
         {
             InitializeComponent();
-            panel1.BackColor = Color.FromArgb(180,0,0,0);
+            panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
             update = true;
             delete = true;
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
@@ -27,7 +28,6 @@ namespace Sales
                 {
                     connection.Open();
                     showSupplier();
-
                 }
                 catch
                 {
@@ -36,7 +36,7 @@ namespace Sales
             }
         }
 
-        void showSupplier()
+        private void showSupplier()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -55,7 +55,6 @@ namespace Sales
                     MessageBox.Show("Connection Problem!");
                 }
             }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -77,13 +76,13 @@ namespace Sales
                     {
                         if (!update)
                         {
-                            cmd.CommandText = "UPDATE tblSupplier SET supplierName = '" + txtSupplierName.Text + "', address = '"+txtAddress.Text+"', contactNum = "+txtContact.Text+" WHERE supplierId = " + txtId.Text + "";
+                            cmd.CommandText = "UPDATE tblSupplier SET supplierName = '" + txtSupplierName.Text + "', address = '" + txtAddress.Text + "', contactNum = " + txtContact.Text + " WHERE supplierId = " + txtId.Text + "";
                             MessageBox.Show("Supplier Updated!");
                             txtId.Clear();
                         }
                         else
                         {
-                            cmd.CommandText = "INSERT INTO tblSupplier(supplierName, address, contactNum) VALUES ('" + txtSupplierName.Text + "', '"+txtAddress.Text+"', "+txtContact.Text+")";
+                            cmd.CommandText = "INSERT INTO tblSupplier(supplierName, address, contactNum) VALUES ('" + txtSupplierName.Text + "', '" + txtAddress.Text + "', " + txtContact.Text + ")";
                             MessageBox.Show("Success Query!");
                         }
                         cmd.ExecuteNonQuery();
@@ -95,13 +94,10 @@ namespace Sales
                         update = true;
                         delete = true;
                     }
-
-
                 }
                 catch (Exception z)
                 {
                     MessageBox.Show(z.Message);
-
                 }
             }
         }
@@ -140,9 +136,9 @@ namespace Sales
             {
                 using (MySqlConnection connection = new MySqlConnection(Login.con))
                 {
-                        connection.Open();
-                        MySqlCommand cmd = connection.CreateCommand();
-                        cmd.Connection = connection;
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.Connection = connection;
                     try
                     {
                         cmd.CommandText = "DELETE FROM tblSupplier WHERE supplierId = " + txtId.Text + "";
@@ -155,8 +151,7 @@ namespace Sales
                     {
                         MessageBox.Show(z.Message);
                     }
-                } 
-
+                }
             }
         }
     }

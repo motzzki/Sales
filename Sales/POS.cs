@@ -14,7 +14,7 @@ namespace Sales
 {
     public partial class POS : Form
     {
-        Inventory inventory = new Inventory();
+        private Inventory inventory = new Inventory();
 
         public POS()
         {
@@ -74,7 +74,6 @@ namespace Sales
                                 Size = new Size(100, 68)
                             };
 
-
                             Label bp = new Label
                             {
                                 Text = "₱" + baseprice.ToString(),
@@ -82,7 +81,6 @@ namespace Sales
                                 Location = new Point(100, 75),
                                 Font = new Font("Century Gothic", 10),
                                 ForeColor = Color.FromArgb(228, 143, 69)
-
                             };
 
                             // Create a container (e.g., Panel) to hold both the PictureBox and the Label
@@ -95,8 +93,6 @@ namespace Sales
                             bp.BringToFront();
                             // Add the container to the tableLayoutPanelItems
                             tableLayoutPanelItems.Controls.Add(container);
-
-
                         }
                     }
                 }
@@ -106,6 +102,7 @@ namespace Sales
                 }
             }
         }
+
         private static Image ByteArrayToImage(byte[] imgData)
         {
             try
@@ -122,13 +119,11 @@ namespace Sales
             }
         }
 
-
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             inventory.showInventory();
         }
-
 
         private void btnAdd2Cart_Click(object sender, EventArgs e)
         {
@@ -172,7 +167,6 @@ namespace Sales
                     }
                     cbItemId.SelectedIndex = -1;
                     numQuantity.Value = numQuantity.Minimum;
-
                 }
             }
             catch (Exception ex)
@@ -180,8 +174,6 @@ namespace Sales
                 MessageBox.Show(ex.Message);
             }
         }
-
-
 
         public void showtblCart()
         {
@@ -222,7 +214,6 @@ namespace Sales
                                 Size = new Size(100, 68)
                             };
 
-
                             Label bp = new Label
                             {
                                 Text = "₱" + baseprice.ToString(),
@@ -230,7 +221,6 @@ namespace Sales
                                 Location = new Point(10, 75),
                                 Font = new Font("Century Gothic", 10),
                                 ForeColor = Color.FromArgb(228, 143, 69)
-
                             };
                             Label qtt = new Label
                             {
@@ -247,7 +237,6 @@ namespace Sales
                                 Location = new Point(120, 75),
                                 Font = new Font("Century Gothic", 10),
                                 ForeColor = Color.FromArgb(228, 143, 69)
-
                             };
 
                             // Create a container (e.g., Panel) to hold both the PictureBox and the Label
@@ -264,8 +253,6 @@ namespace Sales
                             tp.BringToFront();
                             // Add the container to the tableLayoutPanelItems
                             tableCart.Controls.Add(container);
-
-
                         }
                     }
                 }
@@ -278,7 +265,6 @@ namespace Sales
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(Login.con))
@@ -293,10 +279,9 @@ namespace Sales
                         if (cartItemCount == 0)
                         {
                             MessageBox.Show("Cart is empty. Please add items to the cart before placing an order.");
-                            return; 
+                            return;
                         }
                     }
-
 
                     using (MySqlCommand clearCartCmd = connection.CreateCommand())
                     {
@@ -332,8 +317,7 @@ namespace Sales
             }
         }
 
-
-        void showNameAndId()
+        private void showNameAndId()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -376,7 +360,5 @@ namespace Sales
                 txtPName.Text = selectedRow["itemName"].ToString();
             }
         }
-
-
     }
 }

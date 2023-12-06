@@ -21,8 +21,6 @@ namespace Sales
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
 
-
-
         /*void Connect()
         {
             con = "Server=localhost;Database=dbsales;User=root;Password=root;";
@@ -36,7 +34,6 @@ namespace Sales
 
                     using (MySqlCommand command = new MySqlCommand(statement, connection))
                     {
-
                         command.Parameters.AddWithValue("@Username", txtUser.Text);
                         command.Parameters.AddWithValue("@Password", txtPass.Text);
 
@@ -78,7 +75,8 @@ namespace Sales
                 txtPass.PasswordChar = '*';
             }
         }
-        void Reset()
+
+        private void Reset()
         {
             txtUser.Clear();
             txtPass.Clear();
@@ -90,7 +88,6 @@ namespace Sales
             // Connect();
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
-
         }
     }
 }
