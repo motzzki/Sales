@@ -15,6 +15,7 @@ namespace Sales
     {
         private bool update = false, delete = false;
         private int indexRow;
+        private int selectedUser;
 
         public User()
         {
@@ -52,7 +53,7 @@ namespace Sales
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.Connection = connection;
-                int selectedUser = GetSelectedUserId();
+                selectedUser = GetSelectedUserId();
 
                 try
                 {
@@ -71,6 +72,8 @@ namespace Sales
                     {
                         cmd.CommandText = "UPDATE tblUser SET userName = '" + txtUser.Text + "', userPass = '" + txtPass.Text + "' WHERE userId = " + selectedUser + "";
                         MessageBox.Show("User Updated!");
+                        dataUser.Enabled = false;
+                        btnDelete.Enabled = true;
                     }
 
                     cmd.ExecuteNonQuery();
@@ -78,11 +81,10 @@ namespace Sales
                     txtUser.Clear();
                     txtPass.Clear();
                     txtUser.Focus();
-                    dataUser.Enabled = false;
 
                     showUser();
 
-                    update = true;
+                    update = false;
                 }
                 catch (Exception ex)
                 {
@@ -108,19 +110,75 @@ namespace Sales
             MessageBox.Show("Updating User, Please Select Desired Row", "Message");
             update = true;
             dataUser.Enabled = true;
+            btnDelete.Enabled = false;
         }
 
         private void dataUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            indexRow = e.RowIndex;
+            selectedUser = GetSelectedUserId();
             DataGridViewRow row = dataUser.Rows[indexRow];
 
-            txtUser.Text = row.Cells[1].Value.ToString();
-            txtPass.Text = row.Cells[2].Value.ToString();
+            if (update)
+            {
+                indexRow = e.RowIndex;
+                txtUser.Text = row.Cells[1].Value.ToString();
+                txtPass.Text = row.Cells[2].Value.ToString();
+            }
+
+            if (delete)
+            {
+                DialogResult result = MessageBox.Show("Confirm Delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteUser(selectedUser);
+                }
+            }
+        }
+
+        private void DeleteUser(int userId)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(Login.con))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand del = connection.CreateCommand())
+                    {
+                        del.CommandText = "DELETE FROM tblUser WHERE userId = " + selectedUser + "";
+
+                        del.ExecuteNonQuery();
+
+                        MessageBox.Show("User Deleted!");
+                        showUser();
+                        delete = false;
+                        dataUser.Enabled = false;
+                        btnUpdate.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            btnUpdate.Enabled = false;
+            DialogResult result = MessageBox.Show("Do you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                dataUser.Enabled = true;
+                delete = true;
+                update = false;
+            }
         }
     }
 }
