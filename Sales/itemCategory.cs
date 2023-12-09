@@ -13,13 +13,15 @@ namespace Sales
 {
     public partial class itemCategory : UserControl
     {
-        Boolean update, delete;
+        private bool update = false, delete = false;
+        private int indexRow;
+        private int selectedUser;
+
         public itemCategory()
         {
             InitializeComponent();
             panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
-            update = true;
-            delete = true;
+
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
 
             using (MySqlConnection connection = new MySqlConnection(Login.con))
@@ -28,7 +30,6 @@ namespace Sales
                 {
                     connection.Open();
                     showCategory();
-
                 }
                 catch
                 {
@@ -36,7 +37,8 @@ namespace Sales
                 }
             }
         }
-        void showCategory()
+
+        private void showCategory()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -74,90 +76,117 @@ namespace Sales
                     }
                     else
                     {
-
-                        if (!update)
-                        {
-                            cmd.CommandText = "UPDATE tblItemCategory SET categoryName = '" + txtCatName.Text + "' WHERE categoryName = '" + txtNameCat.Text + "'";
-                            MessageBox.Show("Category Updated!");
-                            txtNameCat.Clear();
-                        }
-                        else
+                        if (update == false)
                         {
                             cmd.CommandText = "INSERT INTO tblItemCategory(categoryName) VALUES ('" + txtCatName.Text + "')";
                             MessageBox.Show("Success Query!");
                         }
+                        else
+                        {
+                            selectedUser = GetSelectedUserId();
+                            cmd.CommandText = "UPDATE tblItemCategory SET categoryName = '" + txtCatName.Text + "' WHERE categoryId = " + selectedUser + "";
+                            MessageBox.Show("Category Updated!");
+                        }
                         cmd.ExecuteNonQuery();
                         txtCatName.Clear();
-                        txtNameCat.Clear();
+
                         txtCatName.Focus();
                         showCategory();
                         update = true;
                         delete = true;
                     }
-
-
                 }
                 catch (Exception z)
                 {
                     MessageBox.Show(z.Message);
-
                 }
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            panel5.Visible = true;
-            update = false;
+            MessageBox.Show("Updating Category, Please Select Desired Row", "Message");
+            update = true;
+            dataCategory.Enabled = true;
+            btnDelete.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            btnUpdate.Enabled = false;
+            DialogResult result = MessageBox.Show("Do you want to delete? Please Select Desired Row", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                delete = false;
-                panel5.Visible = true;
-            }
-            else
+            if (result == DialogResult.No)
             {
                 return;
             }
+            else
+            {
+                dataCategory.Enabled = true;
+                delete = true;
+                update = false;
+            }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        public int GetSelectedUserId()
         {
-            panel5.Visible = false;
-            update = true;
-            delete = true;
+            if (dataCategory.SelectedRows.Count >= 0)
+            {
+                return Convert.ToInt32(dataCategory.SelectedRows[0].Cells["CATEGORY ID"].Value);
+            }
+            else
+            {
+                return -1;
+            }
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void dataCategory_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            panel5.Visible = false;
-            if (!delete)
+            selectedUser = GetSelectedUserId();
+            DataGridViewRow row = dataCategory.Rows[indexRow];
+
+            if (update)
+            {
+                indexRow = e.RowIndex;
+                txtCatName.Text = row.Cells[1].Value.ToString();
+            }
+
+            if (delete)
+            {
+                DialogResult result = MessageBox.Show("Confirm Delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteUser(selectedUser);
+                }
+            }
+        }
+
+        private void DeleteUser(int catId)
+        {
+            try
             {
                 using (MySqlConnection connection = new MySqlConnection(Login.con))
                 {
                     connection.Open();
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.Connection = connection;
-                    try
+
+                    using (MySqlCommand del = connection.CreateCommand())
                     {
-                        
-                        cmd.CommandText = "DELETE FROM tblItemCategory WHERE categoryName = '" + txtNameCat.Text + "'";
-                        MessageBox.Show("User Deleted!");
-                        cmd.ExecuteNonQuery();
-                        delete = true;
+                        del.CommandText = "DELETE FROM tblItemCategory WHERE userId = " + catId + "";
+
+                        del.ExecuteNonQuery();
+
+                        MessageBox.Show("Category Deleted!");
                         showCategory();
-                    }
-                    catch (Exception z)
-                    {
-                        MessageBox.Show(z.Message);
+                        delete = false;
+                        dataCategory.Enabled = false;
+                        btnUpdate.Enabled = true;
                     }
                 }
-               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

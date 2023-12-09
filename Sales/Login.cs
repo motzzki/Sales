@@ -14,6 +14,7 @@ namespace Sales
     public partial class Login : Form
     {
         public static String con;
+        public string welcomeUser;
 
         public Login()
         {
@@ -21,7 +22,7 @@ namespace Sales
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
 
-        /*void Connect()
+        private void Connect()
         {
             con = "Server=localhost;Database=dbsales;User=root;Password=root;";
 
@@ -44,7 +45,7 @@ namespace Sales
                                 MessageBox.Show("Login Successful!", "Success");
                                 Dashboard dashboard = new Dashboard();
                                 dashboard.Show();
-
+                                welcomeUser = txtUser.Text;
                                 Reset();
                                 this.Hide();
                             }
@@ -62,7 +63,7 @@ namespace Sales
                     MessageBox.Show("Error in Connection: " + ex.Message, "Error");
                 }
             }
-        }*/
+        }
 
         private void chkPass_CheckedChanged(object sender, EventArgs e)
         {
@@ -85,9 +86,9 @@ namespace Sales
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Connect();
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
+            Connect();
+            //Dashboard dashboard = new Dashboard();
+            //dashboard.Show();
         }
     }
 }

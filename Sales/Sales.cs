@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace Sales
 {
-    public partial class Inventory : UserControl
+    public partial class Sales : UserControl
     {
-        public Inventory()
+        public Sales()
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
                 try
                 {
                     connection.Open();
-                    showInventory();
-
+                    showSales();
                 }
                 catch
                 {
@@ -32,7 +32,7 @@ namespace Sales
             }
         }
 
-        public void showInventory()
+        public void showSales()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -40,24 +40,17 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select item_id as 'ITEM ID', quantity as QUANTITY From tblInventory";
+                    cmd.CommandText = "Select receiptId as 'RECEIPT ID', receiptDate as 'DATE', item_id as 'ITEM ID', quantity as 'QUANTITY', total_amount as 'TOTAL' From tblSales";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
-                    dataInventory.DataSource = ds.Tables[0].DefaultView;
+                    dataSales.DataSource = ds.Tables[0].DefaultView;
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show("Connection Problem!");
-
                 }
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
-        }
-
     }
 }

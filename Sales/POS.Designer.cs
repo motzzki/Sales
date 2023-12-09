@@ -36,7 +36,7 @@
             this.btnTransact = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableCart = new System.Windows.Forms.TableLayoutPanel();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
@@ -79,9 +79,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(177, 592);
+            this.panel1.Size = new System.Drawing.Size(267, 730);
             this.panel1.TabIndex = 0;
             // 
             // btnBack
@@ -91,10 +91,10 @@
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(9, 533);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(12, 656);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(58, 59);
+            this.btnBack.Size = new System.Drawing.Size(77, 73);
             this.btnBack.TabIndex = 2;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
@@ -112,10 +112,10 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 329);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(0, 406);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 55);
+            this.button1.Size = new System.Drawing.Size(267, 68);
             this.button1.TabIndex = 5;
             this.button1.Text = "  CATEGORY";
             this.button1.UseVisualStyleBackColor = false;
@@ -133,10 +133,10 @@
             this.btnProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnProduct.Image")));
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(0, 274);
-            this.btnProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProduct.Location = new System.Drawing.Point(0, 338);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(177, 55);
+            this.btnProduct.Size = new System.Drawing.Size(267, 68);
             this.btnProduct.TabIndex = 4;
             this.btnProduct.Text = "PRODUCT";
             this.btnProduct.UseVisualStyleBackColor = false;
@@ -154,48 +154,47 @@
             this.btnTransact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.btnTransact.Image = ((System.Drawing.Image)(resources.GetObject("btnTransact.Image")));
             this.btnTransact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransact.Location = new System.Drawing.Point(0, 219);
-            this.btnTransact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTransact.Location = new System.Drawing.Point(0, 270);
+            this.btnTransact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTransact.Name = "btnTransact";
-            this.btnTransact.Size = new System.Drawing.Size(177, 55);
+            this.btnTransact.Size = new System.Drawing.Size(267, 68);
             this.btnTransact.TabIndex = 3;
-            this.btnTransact.Text = "TRANSACTIONS";
+            this.btnTransact.Text = "   TRANSACTIONS";
             this.btnTransact.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTransact.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lblWelcomeUser);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(177, 219);
+            this.panel3.Size = new System.Drawing.Size(267, 270);
             this.panel3.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(71, 21);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(116, 110);
+            this.pictureBox1.Size = new System.Drawing.Size(155, 135);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // lblWelcomeUser
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label2.Location = new System.Drawing.Point(9, 143);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 55);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Welcome, User!";
-            this.label2.UseCompatibleTextRendering = true;
+            this.lblWelcomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            this.lblWelcomeUser.Location = new System.Drawing.Point(40, 176);
+            this.lblWelcomeUser.Name = "lblWelcomeUser";
+            this.lblWelcomeUser.Size = new System.Drawing.Size(161, 68);
+            this.lblWelcomeUser.TabIndex = 0;
+            this.lblWelcomeUser.Text = "Welcome, User!";
+            this.lblWelcomeUser.UseCompatibleTextRendering = true;
             // 
             // panel2
             // 
@@ -205,10 +204,10 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(800, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(1136, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 592);
+            this.panel2.Size = new System.Drawing.Size(307, 730);
             this.panel2.TabIndex = 1;
             // 
             // tableCart
@@ -216,15 +215,15 @@
             this.tableCart.AutoScroll = true;
             this.tableCart.ColumnCount = 1;
             this.tableCart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableCart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableCart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableCart.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableCart.Location = new System.Drawing.Point(0, 119);
-            this.tableCart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableCart.Location = new System.Drawing.Point(0, 146);
+            this.tableCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableCart.Name = "tableCart";
             this.tableCart.RowCount = 2;
             this.tableCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableCart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableCart.Size = new System.Drawing.Size(230, 314);
+            this.tableCart.Size = new System.Drawing.Size(307, 386);
             this.tableCart.TabIndex = 6;
             // 
             // btnPlaceOrder
@@ -236,10 +235,10 @@
             this.btnPlaceOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPlaceOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlaceOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnPlaceOrder.Location = new System.Drawing.Point(37, 533);
-            this.btnPlaceOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(49, 656);
+            this.btnPlaceOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(156, 43);
+            this.btnPlaceOrder.Size = new System.Drawing.Size(208, 53);
             this.btnPlaceOrder.TabIndex = 5;
             this.btnPlaceOrder.Text = "PLACE ORDER";
             this.btnPlaceOrder.UseVisualStyleBackColor = false;
@@ -249,20 +248,19 @@
             // 
             this.panel6.Controls.Add(this.lblTotal);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Location = new System.Drawing.Point(0, 438);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Location = new System.Drawing.Point(0, 539);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(230, 78);
+            this.panel6.Size = new System.Drawing.Size(307, 96);
             this.panel6.TabIndex = 4;
             // 
             // lblTotal
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.lblTotal.Location = new System.Drawing.Point(82, 46);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Location = new System.Drawing.Point(109, 57);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(73, 19);
+            this.lblTotal.Size = new System.Drawing.Size(97, 23);
             this.lblTotal.TabIndex = 3;
             // 
             // label7
@@ -270,10 +268,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label7.Location = new System.Drawing.Point(4, 46);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(5, 57);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 20);
+            this.label7.Size = new System.Drawing.Size(88, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "Total: ₱";
             // 
@@ -283,9 +280,9 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(230, 119);
+            this.panel5.Size = new System.Drawing.Size(307, 146);
             this.panel5.TabIndex = 3;
             // 
             // label1
@@ -294,10 +291,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label1.Location = new System.Drawing.Point(47, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(63, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 55);
+            this.label1.Size = new System.Drawing.Size(197, 69);
             this.label1.TabIndex = 0;
             this.label1.Text = "CART";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -307,10 +303,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label4.Location = new System.Drawing.Point(9, 87);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(12, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(84, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "Order #:";
             // 
@@ -319,20 +314,19 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label3.Location = new System.Drawing.Point(4, 188);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(5, 231);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 31);
+            this.label3.Size = new System.Drawing.Size(118, 38);
             this.label3.TabIndex = 2;
             this.label3.Text = "MENU";
             // 
             // numQuantity
             // 
             this.numQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQuantity.Location = new System.Drawing.Point(260, 73);
-            this.numQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numQuantity.Location = new System.Drawing.Point(430, 90);
+            this.numQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(90, 23);
+            this.numQuantity.Size = new System.Drawing.Size(120, 27);
             this.numQuantity.TabIndex = 1;
             // 
             // btnAdd2Cart
@@ -343,10 +337,10 @@
             this.btnAdd2Cart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd2Cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd2Cart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnAdd2Cart.Location = new System.Drawing.Point(235, 119);
-            this.btnAdd2Cart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd2Cart.Location = new System.Drawing.Point(396, 146);
+            this.btnAdd2Cart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd2Cart.Name = "btnAdd2Cart";
-            this.btnAdd2Cart.Size = new System.Drawing.Size(145, 37);
+            this.btnAdd2Cart.Size = new System.Drawing.Size(193, 46);
             this.btnAdd2Cart.TabIndex = 2;
             this.btnAdd2Cart.Text = "ADD TO CART";
             this.btnAdd2Cart.UseVisualStyleBackColor = false;
@@ -362,19 +356,20 @@
             this.panel7.Controls.Add(this.numQuantity);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(623, 183);
+            this.panel7.Size = new System.Drawing.Size(869, 225);
             this.panel7.TabIndex = 4;
             // 
             // cbItemId
             // 
+            this.cbItemId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemId.FormattingEnabled = true;
-            this.cbItemId.Location = new System.Drawing.Point(260, 35);
-            this.cbItemId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbItemId.Location = new System.Drawing.Point(430, 43);
+            this.cbItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbItemId.Name = "cbItemId";
-            this.cbItemId.Size = new System.Drawing.Size(92, 25);
+            this.cbItemId.Size = new System.Drawing.Size(121, 28);
             this.cbItemId.TabIndex = 5;
             this.cbItemId.SelectedIndexChanged += new System.EventHandler(this.cbItemId_SelectedIndexChanged);
             // 
@@ -383,10 +378,9 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label9.Location = new System.Drawing.Point(157, 74);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(292, 91);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 20);
+            this.label9.Size = new System.Drawing.Size(91, 25);
             this.label9.TabIndex = 4;
             this.label9.Text = "Quantity:";
             // 
@@ -395,10 +389,9 @@
             this.txtPName.AutoSize = true;
             this.txtPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.txtPName.Location = new System.Drawing.Point(380, 35);
-            this.txtPName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtPName.Location = new System.Drawing.Point(590, 43);
             this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(0, 20);
+            this.txtPName.Size = new System.Drawing.Size(0, 25);
             this.txtPName.TabIndex = 3;
             // 
             // label8
@@ -406,10 +399,9 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label8.Location = new System.Drawing.Point(146, 35);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(278, 43);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 20);
+            this.label8.Size = new System.Drawing.Size(106, 25);
             this.label8.TabIndex = 3;
             this.label8.Text = "Product Id:";
             // 
@@ -418,20 +410,20 @@
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(177, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(267, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(623, 230);
+            this.panel4.Size = new System.Drawing.Size(869, 283);
             this.panel4.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanelItems);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(177, 230);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(267, 283);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(623, 362);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(869, 447);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // tableLayoutPanelItems
@@ -442,28 +434,28 @@
             this.tableLayoutPanelItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanelItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.flowLayoutPanel1.SetFlowBreak(this.tableLayoutPanelItems, true);
-            this.tableLayoutPanelItems.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanelItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanelItems.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanelItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanelItems.Name = "tableLayoutPanelItems";
             this.tableLayoutPanelItems.RowCount = 2;
             this.tableLayoutPanelItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelItems.Size = new System.Drawing.Size(621, 360);
+            this.tableLayoutPanelItems.Size = new System.Drawing.Size(865, 443);
             this.tableLayoutPanelItems.TabIndex = 0;
             // 
             // POS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(41)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1030, 592);
+            this.ClientSize = new System.Drawing.Size(1443, 730);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "POS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS";
@@ -497,7 +489,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnPlaceOrder;

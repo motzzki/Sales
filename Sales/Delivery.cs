@@ -16,6 +16,8 @@ namespace Sales
         public Delivery()
         {
             InitializeComponent();
+            DateTime currentDateTime = DateTime.Now;
+            lblDate.Text = currentDateTime.ToString();
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -24,7 +26,6 @@ namespace Sales
                     connection.Open();
                     showDelivery();
                     showItemId();
-
                 }
                 catch
                 {
@@ -33,7 +34,7 @@ namespace Sales
             }
         }
 
-        void showDelivery()
+        private void showDelivery()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -50,12 +51,11 @@ namespace Sales
                 catch (Exception e)
                 {
                     MessageBox.Show("Connection Problem!");
-
                 }
             }
         }
 
-        void showItemId()
+        private void showItemId()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -79,7 +79,6 @@ namespace Sales
                             // Set the DataSource and configure display and value members
                             cmbItmId.DataSource = table;
                             cmbItmId.DisplayMember = "itemId";
-                            
                         }
                     }
                 }
@@ -100,13 +99,13 @@ namespace Sales
 
                 try
                 {
-                    string formattedDate = dateitemDate.Value.ToString("yyyy-MM-dd");
+                    //string formattedDate = dateitemDate.Value.ToString("yyyy-MM-dd");
 
                     cmd.CommandText = "SELECT COUNT(*) FROM tblInventory WHERE item_id = '" + cmbItmId.Text + "'";
                     int existingRecordCount = Convert.ToInt32(cmd.ExecuteScalar());
 
                     // Insert into tblDelivery
-                    cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES ('" + formattedDate + "', '" + cmbItmId.Text + "', '" + numQuantity.Text + "')";
+                    cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES (CURDATE(), '" + cmbItmId.Text + "', '" + numQuantity.Text + "')";
                     cmd.ExecuteNonQuery();
 
                     if (existingRecordCount > 0)
@@ -115,19 +114,16 @@ namespace Sales
                     }
                     else
                     {
-
                         cmd.CommandText = "INSERT INTO tblInventory (item_id, quantity) VALUES ('" + cmbItmId.Text + "', '" + numQuantity.Text + "')";
                     }
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Success Query!");
                     showDelivery();
-
                 }
                 catch (Exception z)
                 {
                     MessageBox.Show(z.Message);
-
                 }
             }
         }

@@ -12,7 +12,9 @@ namespace Sales
 {
     public partial class Dashboard : Form
     {
-        bool Maincollapse;
+        private bool Maincollapse;
+        private Inventory inventory = new Inventory();
+
         public Dashboard()
         {
             InitializeComponent();
@@ -21,21 +23,19 @@ namespace Sales
             btnSupplier.Cursor = Cursors.Hand;
             btnCategory.Cursor = Cursors.Hand;
             btnItems.Cursor = Cursors.Hand;
-            
+            inventory.showInventory();
         }
-
-       
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-            if(Maincollapse)
+            if (Maincollapse)
             {
                 SubMain.Height += 10;
-                if(SubMain.Height == SubMain.MaximumSize.Height)
+                if (SubMain.Height == SubMain.MaximumSize.Height)
                 {
                     Maincollapse = false;
                     MainTimer.Stop();
-                }   
+                }
             }
             else
             {
@@ -50,14 +50,16 @@ namespace Sales
 
         private void btnMain_Click(object sender, EventArgs e)
         {
-            MainTimer.Start();  
+            MainTimer.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             POS pos = new POS();
             pos.Show();
+            this.Close();
         }
+
         private void addUser(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -102,6 +104,16 @@ namespace Sales
             addUser(inventory);
         }
 
-        
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            Sales sales = new Sales();
+            addUser(sales);
+        }
     }
 }

@@ -176,7 +176,7 @@ namespace Sales
                     txtItemName.Clear();
                     cbSupId.SelectedIndex = -1;
                     cbCatId.SelectedIndex = -1;
-                    txtPrice.Clear();
+                    txtPrice.Value = 0;
                     txtItemID.Focus();
 
                     // Display updated item list
