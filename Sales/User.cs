@@ -1,12 +1,7 @@
 ﻿using MySqlConnector;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sales
@@ -20,7 +15,6 @@ namespace Sales
         public User()
         {
             InitializeComponent();
-
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
             panel4.BackColor = Color.FromArgb(180, 0, 0, 0);
             showUser();
@@ -147,12 +141,10 @@ namespace Sales
 
         {
             selectedUser = GetSelectedUserId();
-
+            indexRow = e.RowIndex;
+            DataGridViewRow row = dataUser.Rows[indexRow];
             if (update)
             {
-                DataGridViewRow row = dataUser.Rows[indexRow];
-                indexRow = e.RowIndex;
-
                 txtUser.Text = row.Cells[1].Value.ToString();
                 txtPass.Text = row.Cells[2].Value.ToString();
             }

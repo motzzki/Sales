@@ -81,7 +81,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(473, 334);
+            this.label5.Location = new System.Drawing.Point(475, 271);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(284, 54);
             this.label5.TabIndex = 7;
@@ -92,7 +92,7 @@
             this.chkPass.AutoSize = true;
             this.chkPass.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPass.ForeColor = System.Drawing.Color.Transparent;
-            this.chkPass.Location = new System.Drawing.Point(114, 338);
+            this.chkPass.Location = new System.Drawing.Point(114, 339);
             this.chkPass.Name = "chkPass";
             this.chkPass.Size = new System.Drawing.Size(136, 24);
             this.chkPass.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(495, 222);
+            this.label3.Location = new System.Drawing.Point(495, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(237, 63);
             this.label3.TabIndex = 7;
@@ -120,7 +120,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLogin.Location = new System.Drawing.Point(128, 380);
+            this.btnLogin.Location = new System.Drawing.Point(128, 381);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(151, 59);
             this.btnLogin.TabIndex = 5;
@@ -132,7 +132,7 @@
             // txtPass
             // 
             this.txtPass.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(104, 298);
+            this.txtPass.Location = new System.Drawing.Point(104, 299);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(235, 34);
@@ -143,7 +143,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(104, 264);
+            this.label2.Location = new System.Drawing.Point(104, 265);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 31);
             this.label2.TabIndex = 3;
@@ -152,7 +152,7 @@
             // txtUser
             // 
             this.txtUser.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(104, 207);
+            this.txtUser.Location = new System.Drawing.Point(104, 208);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(235, 34);
             this.txtUser.TabIndex = 2;
@@ -163,7 +163,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(104, 173);
+            this.label1.Location = new System.Drawing.Point(104, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 31);
             this.label1.TabIndex = 1;
@@ -175,7 +175,7 @@
             this.lblLogin.BackColor = System.Drawing.Color.Transparent;
             this.lblLogin.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblLogin.Location = new System.Drawing.Point(130, 87);
+            this.lblLogin.Location = new System.Drawing.Point(130, 88);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(163, 55);
             this.lblLogin.TabIndex = 0;

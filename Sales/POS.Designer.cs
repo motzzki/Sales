@@ -178,7 +178,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(71, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(56, 21);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(155, 135);
@@ -189,11 +189,12 @@
             // 
             this.lblWelcomeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcomeUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.lblWelcomeUser.Location = new System.Drawing.Point(40, 176);
+            this.lblWelcomeUser.Location = new System.Drawing.Point(53, 176);
             this.lblWelcomeUser.Name = "lblWelcomeUser";
             this.lblWelcomeUser.Size = new System.Drawing.Size(161, 68);
             this.lblWelcomeUser.TabIndex = 0;
-            this.lblWelcomeUser.Text = "Welcome, User!";
+            this.lblWelcomeUser.Text = "\r\n";
+            this.lblWelcomeUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblWelcomeUser.UseCompatibleTextRendering = true;
             // 
             // panel2
@@ -323,7 +324,7 @@
             // numQuantity
             // 
             this.numQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQuantity.Location = new System.Drawing.Point(430, 90);
+            this.numQuantity.Location = new System.Drawing.Point(430, 85);
             this.numQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numQuantity.Name = "numQuantity";
             this.numQuantity.Size = new System.Drawing.Size(120, 27);
@@ -337,7 +338,7 @@
             this.btnAdd2Cart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd2Cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd2Cart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnAdd2Cart.Location = new System.Drawing.Point(396, 146);
+            this.btnAdd2Cart.Location = new System.Drawing.Point(396, 141);
             this.btnAdd2Cart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd2Cart.Name = "btnAdd2Cart";
             this.btnAdd2Cart.Size = new System.Drawing.Size(193, 46);
@@ -366,19 +367,18 @@
             this.cbItemId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemId.FormattingEnabled = true;
-            this.cbItemId.Location = new System.Drawing.Point(430, 43);
+            this.cbItemId.Location = new System.Drawing.Point(430, 38);
             this.cbItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbItemId.Name = "cbItemId";
             this.cbItemId.Size = new System.Drawing.Size(121, 28);
             this.cbItemId.TabIndex = 5;
-            this.cbItemId.SelectedIndexChanged += new System.EventHandler(this.cbItemId_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label9.Location = new System.Drawing.Point(292, 91);
+            this.label9.Location = new System.Drawing.Point(292, 86);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 25);
             this.label9.TabIndex = 4;
@@ -389,7 +389,7 @@
             this.txtPName.AutoSize = true;
             this.txtPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.txtPName.Location = new System.Drawing.Point(590, 43);
+            this.txtPName.Location = new System.Drawing.Point(590, 38);
             this.txtPName.Name = "txtPName";
             this.txtPName.Size = new System.Drawing.Size(0, 25);
             this.txtPName.TabIndex = 3;
@@ -399,7 +399,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label8.Location = new System.Drawing.Point(278, 43);
+            this.label8.Location = new System.Drawing.Point(278, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 25);
             this.label8.TabIndex = 3;

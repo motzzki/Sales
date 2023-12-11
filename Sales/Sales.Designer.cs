@@ -70,7 +70,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataSales.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataSales.Location = new System.Drawing.Point(39, 262);
+            this.dataSales.Location = new System.Drawing.Point(39, 270);
             this.dataSales.Name = "dataSales";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
@@ -97,7 +97,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(34, 104);
+            this.label1.Location = new System.Drawing.Point(34, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 93);
             this.label1.TabIndex = 3;

@@ -53,7 +53,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnSave.Location = new System.Drawing.Point(184, 447);
+            this.btnSave.Location = new System.Drawing.Point(184, 523);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 44);
             this.btnSave.TabIndex = 17;
@@ -64,7 +64,7 @@
             // txtCatName
             // 
             this.txtCatName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCatName.Location = new System.Drawing.Point(125, 390);
+            this.txtCatName.Location = new System.Drawing.Point(125, 466);
             this.txtCatName.Name = "txtCatName";
             this.txtCatName.Size = new System.Drawing.Size(284, 32);
             this.txtCatName.TabIndex = 15;
@@ -75,7 +75,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(118, 356);
+            this.label1.Location = new System.Drawing.Point(118, 432);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 23);
             this.label1.TabIndex = 13;
@@ -88,7 +88,7 @@
             this.lblItemCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblItemCategory.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemCategory.ForeColor = System.Drawing.Color.White;
-            this.lblItemCategory.Location = new System.Drawing.Point(53, 145);
+            this.lblItemCategory.Location = new System.Drawing.Point(53, 221);
             this.lblItemCategory.Name = "lblItemCategory";
             this.lblItemCategory.Size = new System.Drawing.Size(467, 186);
             this.lblItemCategory.TabIndex = 11;

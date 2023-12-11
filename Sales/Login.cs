@@ -13,8 +13,7 @@ namespace Sales
 {
     public partial class Login : Form
     {
-        public static String con;
-        public string welcomeUser;
+        public static String con, welcomeUser;
 
         public Login()
         {
@@ -25,7 +24,7 @@ namespace Sales
         private void Connect()
         {
             con = "Server=localhost;Database=dbsales;User=root;Password=root;";
-
+            welcomeUser = txtUser.Text;
             using (MySqlConnection connection = new MySqlConnection(con))
             {
                 try
@@ -45,7 +44,6 @@ namespace Sales
                                 MessageBox.Show("Login Successful!", "Success");
                                 Dashboard dashboard = new Dashboard();
                                 dashboard.Show();
-                                welcomeUser = txtUser.Text;
                                 Reset();
                                 this.Hide();
                             }
@@ -87,8 +85,9 @@ namespace Sales
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Connect();
-            //Dashboard dashboard = new Dashboard();
-            //dashboard.Show();
+            /*Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();*/
         }
     }
 }

@@ -57,7 +57,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnSave.Location = new System.Drawing.Point(207, 514);
+            this.btnSave.Location = new System.Drawing.Point(207, 574);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 44);
             this.btnSave.TabIndex = 25;
@@ -68,7 +68,7 @@
             // txtSupplierName
             // 
             this.txtSupplierName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierName.Location = new System.Drawing.Point(139, 263);
+            this.txtSupplierName.Location = new System.Drawing.Point(139, 323);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(284, 32);
             this.txtSupplierName.TabIndex = 24;
@@ -79,7 +79,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(132, 226);
+            this.label1.Location = new System.Drawing.Point(132, 286);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 34);
             this.label1.TabIndex = 23;
@@ -92,7 +92,7 @@
             this.lblItemCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblItemCategory.Font = new System.Drawing.Font("Century Gothic", 43.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemCategory.ForeColor = System.Drawing.Color.White;
-            this.lblItemCategory.Location = new System.Drawing.Point(117, 111);
+            this.lblItemCategory.Location = new System.Drawing.Point(117, 171);
             this.lblItemCategory.Name = "lblItemCategory";
             this.lblItemCategory.Size = new System.Drawing.Size(336, 85);
             this.lblItemCategory.TabIndex = 21;
@@ -102,7 +102,7 @@
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(139, 361);
+            this.txtAddress.Location = new System.Drawing.Point(139, 421);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(284, 32);
             this.txtAddress.TabIndex = 28;
@@ -113,7 +113,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(132, 327);
+            this.label2.Location = new System.Drawing.Point(132, 387);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 34);
             this.label2.TabIndex = 27;
@@ -123,7 +123,7 @@
             // txtContact
             // 
             this.txtContact.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContact.Location = new System.Drawing.Point(139, 461);
+            this.txtContact.Location = new System.Drawing.Point(139, 521);
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(284, 32);
             this.txtContact.TabIndex = 30;
@@ -134,7 +134,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(132, 427);
+            this.label3.Location = new System.Drawing.Point(132, 487);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 34);
             this.label3.TabIndex = 29;
@@ -185,7 +185,7 @@
             this.dataSupplier.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataSupplier.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataSupplier.Enabled = false;
-            this.dataSupplier.Location = new System.Drawing.Point(577, 111);
+            this.dataSupplier.Location = new System.Drawing.Point(577, 145);
             this.dataSupplier.Name = "dataSupplier";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -212,7 +212,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(957, 62);
+            this.btnDelete.Location = new System.Drawing.Point(957, 96);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(102, 43);
             this.btnDelete.TabIndex = 32;
@@ -227,7 +227,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(849, 62);
+            this.btnUpdate.Location = new System.Drawing.Point(849, 96);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(102, 43);
             this.btnUpdate.TabIndex = 31;

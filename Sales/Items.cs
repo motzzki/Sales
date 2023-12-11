@@ -46,7 +46,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select itemId as 'ITEM ID', itemName as 'ITEM NAME', supplier_id as 'SUPPLIER ID', category_id as 'CATEGORY ID', base_price as 'BASE PRICE', itemImg as 'IMAGE' From tblItems";
+                    cmd.CommandText = "select itemId, itemName, supplierName, categoryName, base_price from tblItems inner join tblSupplier on tblSupplier.supplierId = tblItems.supplier_id inner join tblItemCategory on tblItemCategory.CategoryId = tblItems.category_id order by itemId DESC;";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -76,14 +76,12 @@ namespace Sales
                             DataTable table = new DataTable();
                             adap.Fill(table);
 
-                            // Insert an empty row at the beginning
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            // Set the DataSource and configure display and value members
                             cbCatId.DataSource = table;
-                            cbCatId.DisplayMember = "categoryId";
-                            cbCatId.ValueMember = "categoryName";
+                            cbCatId.DisplayMember = "categoryName";
+                            //cbCatId.ValueMember = "categoryName";
                         }
                     }
                 }
@@ -111,13 +109,11 @@ namespace Sales
                             DataTable table = new DataTable();
                             adap.Fill(table);
 
-                            // Insert an empty row at the beginning
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            // Set the DataSource and configure display and value members
                             cbSupId.DataSource = table;
-                            cbSupId.DisplayMember = "supplierId";
+                            cbSupId.DisplayMember = "supplierName";
                         }
                     }
                 }
@@ -157,35 +153,30 @@ namespace Sales
 
                     if (!update)
                     {
-                        // Update existing item
                         cmd.CommandText = "UPDATE tblItems SET itemName = '" + txtItemName.Text + "', supplier_id = '" + cbSupId.Text + "', category_id = " + cbCatId.Text + ", base_price = " + txtPrice.Text + ", itemImg = @image WHERE itemId = " + txtItemID.Text + "";
                         MessageBox.Show("Item Updated!");
                         txtItemID.Clear();
                     }
                     else
                     {
-                        // Insert new item
-                        cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "', " + cbSupId.Text + ", " + cbCatId.Text + ", " + txtPrice.Text + ", @image)";
+                        cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "', (select supplierId from tblSupplier where supplierName = '" + cbSupId.Text + "'), (select categoryId from tblItemCategory where categoryName = '" + cbCatId.Text + "'), " + txtPrice.Text + ", @image)";
                         MessageBox.Show("Success Query!");
                     }
 
                     cmd.Parameters.AddWithValue("@image", img_arr);
                     cmd.ExecuteNonQuery();
 
-                    // Clear input fields
                     txtItemName.Clear();
                     cbSupId.SelectedIndex = -1;
                     cbCatId.SelectedIndex = -1;
                     txtPrice.Value = 0;
                     txtItemID.Focus();
 
-                    // Display updated item list
                     showItems();
 
                     update = true;
                     delete = true;
                     showItems();
-                    lblCatname.Text = " ";
                 }
                 catch (Exception ex)
                 {
@@ -194,28 +185,16 @@ namespace Sales
             }
         }
 
-        private void cbCatId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataRowView selectedRow = (DataRowView)cbCatId.SelectedItem;
-            if (selectedRow != null)
-            {
-                lblCatname.Text = selectedRow["categoryName"].ToString();
-            }
-        }
-
         private void btnInsertImg_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            // Set the filter for allowed file types (in this case, only images)
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All Files|*.*";
 
-            // Show the dialog and check if the user selected a file
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    // Load the selected image into the PictureBox
                     pbItemImg.Image = new System.Drawing.Bitmap(openFileDialog.FileName);
                 }
                 catch (Exception ex)

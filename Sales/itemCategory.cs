@@ -143,11 +143,11 @@ namespace Sales
         private void dataCategory_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             selectedUser = GetSelectedUserId();
+            indexRow = e.RowIndex;
             DataGridViewRow row = dataCategory.Rows[indexRow];
 
             if (update)
             {
-                indexRow = e.RowIndex;
                 txtCatName.Text = row.Cells[1].Value.ToString();
             }
 

@@ -42,7 +42,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select deliveryId as 'DELIVERY ID', deliveryDate as DATE, item_id as 'ITEM ID', quantity as QUANITY From tblDelivery";
+                    cmd.CommandText = "Select deliveryId as 'DELIVERY ID', deliveryDate as DATE, itemName as 'NAME', quantity as QUANITY From tblDelivery inner join tblItems on tblItems.itemId = tblDelivery.item_id";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -72,11 +72,9 @@ namespace Sales
                             DataTable table = new DataTable();
                             adap.Fill(table);
 
-                            // Insert an empty row at the beginning
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            // Set the DataSource and configure display and value members
                             cmbItmId.DataSource = table;
                             cmbItmId.DisplayMember = "itemId";
                         }
@@ -104,7 +102,6 @@ namespace Sales
                     cmd.CommandText = "SELECT COUNT(*) FROM tblInventory WHERE item_id = '" + cmbItmId.Text + "'";
                     int existingRecordCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    // Insert into tblDelivery
                     cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES (CURDATE(), '" + cmbItmId.Text + "', '" + numQuantity.Text + "')";
                     cmd.ExecuteNonQuery();
 

@@ -142,8 +142,8 @@ namespace Sales
         private void dataSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedUser = GetSelectedUserId();
-            DataGridViewRow row = dataSupplier.Rows[indexRow];
             indexRow = e.RowIndex;
+            DataGridViewRow row = dataSupplier.Rows[indexRow];
             if (update)
             {
                 txtSupplierName.Text = row.Cells[1].Value.ToString();

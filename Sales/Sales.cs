@@ -40,7 +40,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select receiptId as 'RECEIPT ID', receiptDate as 'DATE', item_id as 'ITEM ID', quantity as 'QUANTITY', total_amount as 'TOTAL' From tblSales";
+                    cmd.CommandText = "Select receiptId as 'RECEIPT ID', receiptDate as 'DATE', itemName as 'NAME', quantity as 'QUANTITY', total_amount as 'TOTAL' From tblSales inner join tblItems on tblItems.itemId = tblSales.item_id";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);

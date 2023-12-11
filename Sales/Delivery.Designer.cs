@@ -41,8 +41,8 @@
             this.dataDelivery = new System.Windows.Forms.DataGridView();
             this.cmbItmId = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDate = new System.Windows.Forms.Label();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
+            this.lblDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataDelivery)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
@@ -54,7 +54,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(85, 473);
+            this.label3.Location = new System.Drawing.Point(85, 455);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 34);
             this.label3.TabIndex = 40;
@@ -67,7 +67,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(83, 374);
+            this.label2.Location = new System.Drawing.Point(83, 356);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 34);
             this.label2.TabIndex = 38;
@@ -83,7 +83,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(155, 583);
+            this.btnSave.Location = new System.Drawing.Point(155, 565);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 44);
             this.btnSave.TabIndex = 36;
@@ -97,7 +97,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(82, 317);
+            this.label1.Location = new System.Drawing.Point(82, 299);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 34);
             this.label1.TabIndex = 34;
@@ -108,11 +108,11 @@
             // 
             this.lblItemCategory.AutoSize = true;
             this.lblItemCategory.BackColor = System.Drawing.Color.Transparent;
-            this.lblItemCategory.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemCategory.Font = new System.Drawing.Font("Century Gothic", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblItemCategory.ForeColor = System.Drawing.Color.White;
-            this.lblItemCategory.Location = new System.Drawing.Point(74, 119);
+            this.lblItemCategory.Location = new System.Drawing.Point(74, 179);
             this.lblItemCategory.Name = "lblItemCategory";
-            this.lblItemCategory.Size = new System.Drawing.Size(389, 93);
+            this.lblItemCategory.Size = new System.Drawing.Size(367, 89);
             this.lblItemCategory.TabIndex = 32;
             this.lblItemCategory.Text = "DELIVERY";
             this.lblItemCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,7 +147,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataDelivery.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataDelivery.Location = new System.Drawing.Point(468, 248);
+            this.dataDelivery.Location = new System.Drawing.Point(468, 253);
             this.dataDelivery.Name = "dataDelivery";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
@@ -174,7 +174,7 @@
             this.cmbItmId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItmId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItmId.FormattingEnabled = true;
-            this.cmbItmId.Location = new System.Drawing.Point(91, 425);
+            this.cmbItmId.Location = new System.Drawing.Point(91, 407);
             this.cmbItmId.Name = "cmbItmId";
             this.cmbItmId.Size = new System.Drawing.Size(284, 31);
             this.cmbItmId.TabIndex = 45;
@@ -198,24 +198,24 @@
             this.panel1.TabIndex = 46;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // numQuantity
+            // 
+            this.numQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numQuantity.Location = new System.Drawing.Point(91, 514);
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(284, 32);
+            this.numQuantity.TabIndex = 47;
+            // 
             // lblDate
             // 
             this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(180, 317);
+            this.lblDate.Location = new System.Drawing.Point(180, 299);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(219, 34);
             this.lblDate.TabIndex = 46;
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numQuantity
-            // 
-            this.numQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQuantity.Location = new System.Drawing.Point(91, 532);
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(284, 32);
-            this.numQuantity.TabIndex = 47;
             // 
             // Delivery
             // 

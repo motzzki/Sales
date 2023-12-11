@@ -46,7 +46,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(85, 348);
+            this.label1.Location = new System.Drawing.Point(34, 337);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(475, 93);
             this.label1.TabIndex = 1;
@@ -82,7 +82,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataInventory.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataInventory.Location = new System.Drawing.Point(615, 262);
+            this.dataInventory.Location = new System.Drawing.Point(547, 262);
             this.dataInventory.Name = "dataInventory";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
@@ -100,7 +100,8 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.dataInventory.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataInventory.RowTemplate.Height = 24;
-            this.dataInventory.Size = new System.Drawing.Size(371, 265);
+            this.dataInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataInventory.Size = new System.Drawing.Size(520, 265);
             this.dataInventory.TabIndex = 2;
             // 
             // panel1

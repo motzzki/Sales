@@ -23,7 +23,6 @@ namespace Sales
                 {
                     connection.Open();
                     showInventory();
-
                 }
                 catch
                 {
@@ -40,7 +39,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select item_id as 'ITEM ID', quantity as QUANTITY From tblInventory";
+                    cmd.CommandText = "select item_id as 'ITEM ID', itemName as 'NAME', quantity as 'QUANTITY' from tblInventory inner join tblItems on tblInventory.item_id = tblItems.itemId order by item_id DESC";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -49,7 +48,6 @@ namespace Sales
                 catch (Exception e)
                 {
                     MessageBox.Show("Connection Problem!");
-
                 }
             }
         }
@@ -58,6 +56,5 @@ namespace Sales
         {
             panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
         }
-
     }
 }

@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 
 namespace Sales
@@ -17,6 +18,9 @@ namespace Sales
         private Dashboard dashboard = new Dashboard();
         private List<int> qtt = new List<int>();
         private List<int> itemid = new List<int>();
+        private List<int> total = new List<int>();
+
+        private Login login = new Login();
 
         public POS()
         {
@@ -25,8 +29,7 @@ namespace Sales
             ShowAllItems();
             showtblCart();
             showNameAndId();
-            Login login = new Login();
-            lblWelcomeUser.Text = "Welcome, " + login.welcomeUser;
+            showuser();
         }
 
         public void ShowAllItems()
@@ -38,15 +41,12 @@ namespace Sales
 
                 try
                 {
-                    // Replace "tblItems" with your actual table name
                     cmd.CommandText = "SELECT itemName, itemImg, base_price FROM tblItems";
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // Clear existing controls from the tableLayoutPanelItems
                         tableLayoutPanelItems.Controls.Clear();
 
-                        // Set the number of columns based on your layout requirements
                         tableLayoutPanelItems.ColumnCount = 3;
 
                         while (reader.Read())
@@ -55,18 +55,15 @@ namespace Sales
                             Decimal baseprice = reader.GetDecimal("base_price");
                             byte[] imgData = (byte[])reader["itemImg"];
 
-                            // Create a PictureBox for each item
                             PictureBox pictureBox = new PictureBox
                             {
                                 SizeMode = PictureBoxSizeMode.StretchImage,
-                                Size = new Size(100, 100), // Adjust the size as needed
-                                Tag = itemName // Store the itemId in the Tag property for reference
+                                Size = new Size(100, 100),
+                                Tag = itemName
                             };
 
-                            // Load the image into the PictureBox
                             pictureBox.Image = ByteArrayToImage(imgData);
 
-                            // Create a label to display the item ID
                             Label label = new Label
                             {
                                 Text = itemName,
@@ -87,7 +84,6 @@ namespace Sales
                                 ForeColor = Color.FromArgb(228, 143, 69)
                             };
 
-                            // Create a container (e.g., Panel) to hold both the PictureBox and the Label
                             Panel container = new Panel();
                             container.Controls.Add(pictureBox);
                             container.Controls.Add(label);
@@ -95,7 +91,7 @@ namespace Sales
 
                             label.BringToFront();
                             bp.BringToFront();
-                            // Add the container to the tableLayoutPanelItems
+
                             tableLayoutPanelItems.Controls.Add(container);
                         }
                     }
@@ -137,7 +133,6 @@ namespace Sales
                 {
                     connection.Open();
 
-                    // Check available quantity
                     using (MySqlCommand checkQuantityCmd = connection.CreateCommand())
                     {
                         checkQuantityCmd.CommandText = "SELECT quantity FROM tblInventory WHERE item_id = " + cbItemId.Text;
@@ -150,7 +145,6 @@ namespace Sales
                         }
                     }
 
-                    // Add to cart
                     using (MySqlCommand addToCartCmd = connection.CreateCommand())
                     {
                         if (cbItemId.SelectedIndex == -1)
@@ -171,15 +165,16 @@ namespace Sales
                         addToCartCmd.ExecuteNonQuery();
                     }
 
-                    // Calculate total price
                     using (MySqlCommand calculateTotalCmd = connection.CreateCommand())
                     {
                         calculateTotalCmd.CommandText = "SELECT SUM(total_price) AS total_sum FROM tblCart";
                         object result = calculateTotalCmd.ExecuteScalar();
                         MessageBox.Show("Success Query!");
                         showtblCart();
+                        // para sa list of cart
                         itemid.Add(Int32.Parse(cbItemId.Text));
                         qtt.Add(Int32.Parse(numQuantity.Text));
+
                         lblTotal.Text = Convert.ToDecimal(result).ToString();
                     }
                 }
@@ -199,15 +194,12 @@ namespace Sales
 
                 try
                 {
-                    // Replace "tblItems" with your actual table name
                     cmd.CommandText = "SELECT item_name, basePrice, total_price, quantity FROM tblCart";
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // Clear existing controls from the tableLayoutPanelItems
                         tableCart.Controls.Clear();
 
-                        // Set the number of columns based on your layout requirements
                         tableCart.ColumnCount = 1;
 
                         while (reader.Read())
@@ -217,7 +209,6 @@ namespace Sales
                             int quantity = reader.GetInt32("quantity");
                             Decimal totalprice = reader.GetDecimal("total_price");
 
-                            // Create a label to display the item ID
                             Label label = new Label
                             {
                                 Text = itemName,
@@ -254,9 +245,8 @@ namespace Sales
                                 ForeColor = Color.FromArgb(228, 143, 69)
                             };
 
-                            // Create a container (e.g., Panel) to hold both the PictureBox and the Label
                             Panel container = new Panel();
-                            //container.Controls.Add(pictureBox);
+
                             container.Controls.Add(label);
                             container.Controls.Add(bp);
                             container.Controls.Add(qtt);
@@ -266,7 +256,7 @@ namespace Sales
                             bp.BringToFront();
                             qtt.BringToFront();
                             tp.BringToFront();
-                            // Add the container to the tableLayoutPanelItems
+
                             tableCart.Controls.Add(container);
                         }
                     }
@@ -304,19 +294,21 @@ namespace Sales
 
                         showtblCart();
 
+                        cmd.CommandText = "SELECT MAX(receiptId) from tblSales";
+                        int rip = Convert.ToInt32(cmd.ExecuteScalar());
+
                         for (int i = 0; i < cartItemCount; i++)
                         {
                             cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + qtt[i] + " WHERE item_id = " + itemid[i];
+                            cmd.ExecuteNonQuery();
+
+                            cmd.CommandText = "INSERT INTO tblSales (receiptId, receiptDate, item_id, quantity, total_amount) VALUES(" + rip + " + 1, CURDATE(), " + itemid[i] + ", " + qtt[i] + ", " + qtt[i] + " * (SELECT base_price from tblItems where itemId = " + itemid[i] + "))";
                             cmd.ExecuteNonQuery();
                         }
 
                         //cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + numQuantity.Text + " WHERE item_id = " + cbItemId.Text;
 
                         //cmd.ExecuteNonQuery();
-
-                        string date = DateTime.Now.ToString("yyyy-MM-dd");
-                        cmd.CommandText = "INSERT INTO tblSales (receiptDate, item_id, quantity, total_amount) VALUES ('" + date + "', " + cbItemId.Text + ", " + numQuantity.Text + ", " + lblTotal.Text + ")";
-                        cmd.ExecuteNonQuery();
 
                         cbItemId.SelectedIndex = -1;
                         numQuantity.Value = 0;
@@ -348,14 +340,11 @@ namespace Sales
                             DataTable table = new DataTable();
                             adap.Fill(table);
 
-                            // Insert an empty row at the beginning
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            // Set the DataSource and configure display and value members
                             cbItemId.DataSource = table;
-                            cbItemId.DisplayMember = "itemId";
-                            cbItemId.ValueMember = "itemName";
+                            cbItemId.DisplayMember = "itemName";
                         }
                     }
                 }
@@ -366,12 +355,29 @@ namespace Sales
             }
         }
 
-        private void cbItemId_SelectedIndexChanged(object sender, EventArgs e)
+        private void showuser()
         {
-            DataRowView selectedRow = (DataRowView)cbItemId.SelectedItem;
-            if (selectedRow != null)
+            using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
-                txtPName.Text = selectedRow["itemName"].ToString();
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+                    string user = Login.welcomeUser;
+                    cmd.CommandText = "SELECT userName FROM tblUser WHERE userName = '" + user + "'";
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lblWelcomeUser.Text = "Welcome! " + reader["userName"].ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
