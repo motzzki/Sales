@@ -39,7 +39,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "select item_id as 'ITEM ID', itemName as 'NAME', quantity as 'QUANTITY' from tblInventory inner join tblItems on tblInventory.item_id = tblItems.itemId order by item_id DESC";
+                    cmd.CommandText = "select item_id as 'ITEM ID', itemName as 'NAME', quantity as 'QUANTITY' from tblInventory inner join tblItems on tblInventory.item_id = tblItems.itemId order by inventory_id DESC";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);

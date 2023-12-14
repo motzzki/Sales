@@ -45,14 +45,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblRid = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.btnAdd2Cart = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.cbItemId = new System.Windows.Forms.ComboBox();
+            this.cbItmName = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtPName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -278,7 +277,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.lblRid);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -299,16 +298,16 @@
             this.label1.Text = "CART";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblRid
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.label4.Location = new System.Drawing.Point(12, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Order #:";
+            this.lblRid.AutoSize = true;
+            this.lblRid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
+            this.lblRid.Location = new System.Drawing.Point(12, 107);
+            this.lblRid.Name = "lblRid";
+            this.lblRid.Size = new System.Drawing.Size(84, 25);
+            this.lblRid.TabIndex = 1;
+            this.lblRid.Text = "Order #:";
             // 
             // label3
             // 
@@ -327,7 +326,7 @@
             this.numQuantity.Location = new System.Drawing.Point(430, 85);
             this.numQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(120, 27);
+            this.numQuantity.Size = new System.Drawing.Size(172, 27);
             this.numQuantity.TabIndex = 1;
             // 
             // btnAdd2Cart
@@ -338,7 +337,7 @@
             this.btnAdd2Cart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd2Cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd2Cart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnAdd2Cart.Location = new System.Drawing.Point(396, 141);
+            this.btnAdd2Cart.Location = new System.Drawing.Point(418, 136);
             this.btnAdd2Cart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd2Cart.Name = "btnAdd2Cart";
             this.btnAdd2Cart.Size = new System.Drawing.Size(193, 46);
@@ -349,9 +348,8 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.cbItemId);
+            this.panel7.Controls.Add(this.cbItmName);
             this.panel7.Controls.Add(this.label9);
-            this.panel7.Controls.Add(this.txtPName);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.btnAdd2Cart);
             this.panel7.Controls.Add(this.numQuantity);
@@ -362,16 +360,16 @@
             this.panel7.Size = new System.Drawing.Size(869, 225);
             this.panel7.TabIndex = 4;
             // 
-            // cbItemId
+            // cbItmName
             // 
-            this.cbItemId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbItemId.FormattingEnabled = true;
-            this.cbItemId.Location = new System.Drawing.Point(430, 38);
-            this.cbItemId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbItemId.Name = "cbItemId";
-            this.cbItemId.Size = new System.Drawing.Size(121, 28);
-            this.cbItemId.TabIndex = 5;
+            this.cbItmName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbItmName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbItmName.FormattingEnabled = true;
+            this.cbItmName.Location = new System.Drawing.Point(430, 38);
+            this.cbItmName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbItmName.Name = "cbItmName";
+            this.cbItmName.Size = new System.Drawing.Size(172, 28);
+            this.cbItmName.TabIndex = 5;
             // 
             // label9
             // 
@@ -384,16 +382,6 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Quantity:";
             // 
-            // txtPName
-            // 
-            this.txtPName.AutoSize = true;
-            this.txtPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
-            this.txtPName.Location = new System.Drawing.Point(590, 38);
-            this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(0, 25);
-            this.txtPName.TabIndex = 3;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -401,9 +389,9 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(143)))), ((int)(((byte)(69)))));
             this.label8.Location = new System.Drawing.Point(278, 38);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 25);
+            this.label8.Size = new System.Drawing.Size(112, 25);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Product Id:";
+            this.label8.Text = "Item Name:";
             // 
             // panel4
             // 
@@ -490,7 +478,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblWelcomeUser;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblRid;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.Panel panel6;
@@ -505,7 +493,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableCart;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.ComboBox cbItemId;
-        private System.Windows.Forms.Label txtPName;
+        private System.Windows.Forms.ComboBox cbItmName;
     }
 }

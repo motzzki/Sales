@@ -45,7 +45,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select supplierId as 'SUPPLIER ID', supplierName as 'SUPPLIER NAME', address as ADDRESS, contactnum as CONTANCT From tblSupplier";
+                    cmd.CommandText = "Select supplierId as 'SUPPLIER ID', supplierName as 'SUPPLIER NAME', address as ADDRESS, contactnum as CONTANCT From tblSupplier order by supplierId desc";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);

@@ -46,9 +46,11 @@
             this.btnInventory = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDelivery = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SubMain.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,6 +70,8 @@
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel6);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.btnBackup);
+            this.flowLayoutPanel1.Controls.Add(this.btnRestore);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -320,6 +324,26 @@
             this.btnDelivery.UseVisualStyleBackColor = false;
             this.btnDelivery.Click += new System.EventHandler(this.btnDelivery_Click);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.Color.White;
+            this.btnBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.Image")));
+            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackup.Location = new System.Drawing.Point(3, 624);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(120, 50);
+            this.btnBackup.TabIndex = 7;
+            this.btnBackup.Text = "Backup";
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
             // MainTimer
             // 
             this.MainTimer.Interval = 10;
@@ -346,6 +370,26 @@
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(1100, 788);
             this.panelContent.TabIndex = 2;
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.BackColor = System.Drawing.Color.Transparent;
+            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestore.FlatAppearance.BorderSize = 0;
+            this.btnRestore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
+            this.btnRestore.Image = ((System.Drawing.Image)(resources.GetObject("btnRestore.Image")));
+            this.btnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestore.Location = new System.Drawing.Point(129, 624);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(114, 50);
+            this.btnRestore.TabIndex = 8;
+            this.btnRestore.Text = "Restore";
+            this.btnRestore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // Dashboard
             // 
@@ -395,5 +439,7 @@
         private System.Windows.Forms.Timer MainTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.Button btnRestore;
     }
 }

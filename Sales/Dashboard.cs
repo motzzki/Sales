@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -114,6 +115,67 @@ namespace Sales
         {
             Sales sales = new Sales();
             addUser(sales);
+        }
+
+        public void BackupRestore(String path, String toDo)
+        {
+            MySqlConnection conn = new MySqlConnection(Login.con);
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlBackup mb = new MySqlBackup(cmd);
+            try
+            {
+                cmd.Connection = conn;
+                conn.Open();
+                if (toDo.Equals("Backup"))
+                {
+                    mb.ExportToFile(path);
+                }
+                else
+                {
+                    mb.ImportFromFile(path);
+                }
+                MessageBox.Show("Database " + toDo + " successfully\n" +
+                path);
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            string sSelectedFolder, filePathName;
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                sSelectedFolder = fbd.SelectedPath;
+                filePathName = System.IO.Path.Combine(sSelectedFolder, "ThisIsTheBackUpFile" + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + ".bak");
+                //flf.BackupRestore(filePathName, "Backup");
+            }
+            else
+            {
+                sSelectedFolder = string.Empty;
+            }
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            string filePathName;
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.bak)|*.bak";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = true;
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                filePathName = choofdlog.FileName;
+                //flf.BackupRestore(filePathName, "Restore");
+            }
+            else
+            {
+                filePathName = string.Empty;
+            }
         }
     }
 }

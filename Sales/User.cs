@@ -28,7 +28,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select userId as ID, userName as USERNAME, userPass as PASSWORD From tblUser";
+                    cmd.CommandText = "Select userId as ID, userName as USERNAME, userPass as PASSWORD From tblUser order by userId desc";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);

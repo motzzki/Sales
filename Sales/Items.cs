@@ -46,11 +46,16 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "select itemId, itemName, supplierName, categoryName, base_price from tblItems inner join tblSupplier on tblSupplier.supplierId = tblItems.supplier_id inner join tblItemCategory on tblItemCategory.CategoryId = tblItems.category_id order by itemId DESC;";
+                    cmd.CommandText = "select itemId, itemName, supplierName, categoryName, base_price, itemImg from tblItems inner join tblSupplier on tblSupplier.supplierId = tblItems.supplier_id inner join tblItemCategory on tblItemCategory.CategoryId = tblItems.category_id order by itemId DESC;";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
                     dataItems.DataSource = ds.Tables[0].DefaultView;
+
+                    if (dataItems.Columns["itemImg"] is DataGridViewImageColumn imageColumn)
+                    {
+                        imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    }
                 }
                 catch (Exception e)
                 {

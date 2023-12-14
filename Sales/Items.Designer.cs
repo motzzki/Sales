@@ -241,7 +241,9 @@
             // 
             // dataItems
             // 
+            this.dataItems.AllowUserToAddRows = false;
             this.dataItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataItems.BackgroundColor = System.Drawing.Color.Snow;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -261,7 +263,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataItems.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataItems.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataItems.Location = new System.Drawing.Point(447, 89);
+            this.dataItems.Location = new System.Drawing.Point(395, 89);
             this.dataItems.Name = "dataItems";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -269,15 +271,16 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataItems.RowHeadersVisible = false;
             this.dataItems.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataItems.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataItems.RowTemplate.Height = 24;
             this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataItems.Size = new System.Drawing.Size(607, 548);
+            this.dataItems.Size = new System.Drawing.Size(659, 634);
             this.dataItems.TabIndex = 55;
             // 
             // btnDelete

@@ -84,10 +84,10 @@ namespace Sales
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Connect();
-            /*Dashboard dashboard = new Dashboard();
+            //Connect();
+            Dashboard dashboard = new Dashboard();
             dashboard.Show();
-            this.Hide();*/
+            this.Hide();
         }
     }
 }

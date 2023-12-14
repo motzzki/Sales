@@ -24,6 +24,7 @@ namespace Sales
                 {
                     connection.Open();
                     showSales();
+                    showSalesperItem();
                 }
                 catch
                 {
@@ -45,6 +46,27 @@ namespace Sales
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
                     dataSales.DataSource = ds.Tables[0].DefaultView;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Connection Problem!");
+                }
+            }
+        }
+
+        public void showSalesperItem()
+        {
+            using (MySqlConnection connection = new MySqlConnection(Login.con))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "select item_id as 'ITEM ID', itemName as 'ITEM NAME', sum(total_amount) as 'TOTAL AMOUNT' from tblSales inner join tblItems on tblItems.itemId = tblSales.item_id group by item_id, itemName with rollup;";
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adap.Fill(ds);
+                    dataSalesperItem.DataSource = ds.Tables[0].DefaultView;
                 }
                 catch (Exception e)
                 {

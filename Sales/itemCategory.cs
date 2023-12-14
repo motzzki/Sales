@@ -46,7 +46,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select categoryId as 'CATEGORY ID', categoryName as 'CATEGORY NAME' From tblItemCategory";
+                    cmd.CommandText = "Select categoryId as 'CATEGORY ID', categoryName as 'CATEGORY NAME' From tblItemCategory order by categoryId desc";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);

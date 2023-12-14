@@ -42,7 +42,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select deliveryId as 'DELIVERY ID', deliveryDate as DATE, itemName as 'NAME', quantity as QUANITY From tblDelivery inner join tblItems on tblItems.itemId = tblDelivery.item_id";
+                    cmd.CommandText = "Select deliveryId as 'DELIVERY ID', deliveryDate as DATE, itemName as 'NAME', quantity as QUANITY From tblDelivery inner join tblItems on tblItems.itemId = tblDelivery.item_id order by deliveryId DESC";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -76,7 +76,7 @@ namespace Sales
                             table.Rows.InsertAt(dr, 0);
 
                             cmbItmId.DataSource = table;
-                            cmbItmId.DisplayMember = "itemId";
+                            cmbItmId.DisplayMember = "itemName";
                         }
                     }
                 }
@@ -99,19 +99,19 @@ namespace Sales
                 {
                     //string formattedDate = dateitemDate.Value.ToString("yyyy-MM-dd");
 
-                    cmd.CommandText = "SELECT COUNT(*) FROM tblInventory WHERE item_id = '" + cmbItmId.Text + "'";
+                    cmd.CommandText = "SELECT COUNT(*) FROM tblInventory WHERE item_id = (SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "')";
                     int existingRecordCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES (CURDATE(), '" + cmbItmId.Text + "', '" + numQuantity.Text + "')";
+                    cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES (CURDATE(),  (SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "'), '" + numQuantity.Text + "')";
                     cmd.ExecuteNonQuery();
 
                     if (existingRecordCount > 0)
                     {
-                        cmd.CommandText = "UPDATE tblInventory SET quantity = quantity + " + numQuantity.Text + " WHERE item_id = '" + cmbItmId.Text + "'";
+                        cmd.CommandText = "UPDATE tblInventory SET quantity = quantity + " + numQuantity.Text + " WHERE item_id = (SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "')";
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO tblInventory (item_id, quantity) VALUES ('" + cmbItmId.Text + "', '" + numQuantity.Text + "')";
+                        cmd.CommandText = "INSERT INTO tblInventory (item_id, quantity) VALUES ((SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "'), '" + numQuantity.Text + "')";
                     }
 
                     cmd.ExecuteNonQuery();
