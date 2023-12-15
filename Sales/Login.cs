@@ -67,11 +67,11 @@ namespace Sales
         {
             if (chkPass.Checked)
             {
-                txtPass.PasswordChar = '\0';
+                txtPass.UseSystemPasswordChar = false;
             }
             else
             {
-                txtPass.PasswordChar = '*';
+                txtPass.UseSystemPasswordChar = true;
             }
         }
 

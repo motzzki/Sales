@@ -45,7 +45,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select supplierId as 'SUPPLIER ID', supplierName as 'SUPPLIER NAME', address as ADDRESS, contactnum as CONTANCT From tblSupplier order by supplierId desc";
+                    cmd.CommandText = "Select supplierId as 'SUPPLIER ID', supplierName as 'SUPPLIER NAME', address as ADDRESS, contactnum as CONTACT From tblSupplier order by supplierId desc";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -76,24 +76,24 @@ namespace Sales
                     if (update == false)
                     {
                         cmd.CommandText = "INSERT INTO tblSupplier(supplierName, address, contactNum) VALUES ('" + txtSupplierName.Text + "', '" + txtAddress.Text + "', " + txtContact.Text + ")";
-                        MessageBox.Show("Success Query!");
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Insert Successfull!");
                     }
                     else
                     {
                         selectedUser = GetSelectedUserId();
-                        cmd.CommandText = "UPDATE tblSupplier SET supplierName = '" + txtSupplierName.Text + "', address = '" + txtAddress.Text + "', contactNum =" + txtContact.Text + " WHERE userId = " + selectedUser + "";
-                        MessageBox.Show("User Updated!");
-                        dataSupplier.Enabled = false;
-                        btnDelete.Enabled = true;
+
+                        cmd.CommandText = "UPDATE tblSupplier SET supplierName = '" + txtSupplierName.Text + "', address = '" + txtAddress.Text + "', contactNum =" + txtContact.Text + " WHERE supplierId = " + selectedUser + "";
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Supplier Updated!");
+                        resetUpdate();
                     }
-                    cmd.ExecuteNonQuery();
+
                     txtSupplierName.Clear();
                     txtAddress.Clear();
                     txtContact.Clear();
                     txtSupplierName.Focus();
                     showSupplier();
-                    update = true;
-                    delete = true;
                 }
                 catch (Exception z)
                 {
@@ -108,6 +108,14 @@ namespace Sales
             update = true;
             dataSupplier.Enabled = true;
             btnDelete.Enabled = false;
+        }
+
+        private void resetUpdate()
+        {
+            dataSupplier.Enabled = false;
+            update = false;
+            delete = false;
+            btnDelete.Enabled = true;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -172,7 +180,7 @@ namespace Sales
 
                     using (MySqlCommand del = connection.CreateCommand())
                     {
-                        del.CommandText = "DELETE FROM tblItemCategory WHERE userId = " + supplierId + "";
+                        del.CommandText = "DELETE FROM tblSupplier WHERE supplierId = " + supplierId + "";
 
                         del.ExecuteNonQuery();
 
