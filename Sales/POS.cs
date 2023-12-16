@@ -30,90 +30,116 @@ namespace Sales
         {
             InitializeComponent();
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
-            ShowAllItems();
+            showAllItems();
             showCart();
             //showtblCart();
             showItmName();
             showuser();
 
             buttonColumn.UseColumnTextForButtonValue = true;
-            buttonColumn.HeaderText = "Action";
+            buttonColumn.HeaderText = "ACTION";
 
             buttonColumn.Text = "-";
 
             dataCart.Columns.Add(buttonColumn);
         }
 
-        public void ShowAllItems()
+        private void showAllItems()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
-                connection.Open();
-                MySqlCommand cmd = connection.CreateCommand();
-
                 try
                 {
-                    cmd.CommandText = "SELECT itemName, itemImg, base_price FROM tblItems";
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "SELECT itemName as 'NAME', itemImg 'IMAGE', base_price as 'PRICE' FROM tblItems";
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adap.Fill(ds);
+                    dataMenu.DataSource = ds.Tables[0].DefaultView;
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    if (dataMenu.Columns["IMAGE"] is DataGridViewImageColumn imageColumn)
                     {
-                        tableLayoutPanelItems.Controls.Clear();
-
-                        tableLayoutPanelItems.ColumnCount = 3;
-
-                        while (reader.Read())
-                        {
-                            String itemName = reader.GetString("itemName");
-                            Decimal baseprice = reader.GetDecimal("base_price");
-                            byte[] imgData = (byte[])reader["itemImg"];
-
-                            PictureBox pictureBox = new PictureBox
-                            {
-                                SizeMode = PictureBoxSizeMode.StretchImage,
-                                Size = new Size(100, 100),
-                                Tag = itemName
-                            };
-
-                            pictureBox.Image = ByteArrayToImage(imgData);
-
-                            Label label = new Label
-                            {
-                                Text = itemName,
-                                TextAlign = ContentAlignment.TopLeft,
-                                Location = new Point(100, 0),
-                                Font = new Font("Century Gothic", 12),
-                                ForeColor = Color.FromArgb(228, 143, 69),
-                                AutoSize = false,
-                                Size = new Size(100, 68)
-                            };
-
-                            Label bp = new Label
-                            {
-                                Text = "₱" + baseprice.ToString(),
-                                TextAlign = ContentAlignment.BottomLeft,
-                                Location = new Point(100, 75),
-                                Font = new Font("Century Gothic", 10),
-                                ForeColor = Color.FromArgb(228, 143, 69)
-                            };
-
-                            Panel container = new Panel();
-                            container.Controls.Add(pictureBox);
-                            container.Controls.Add(label);
-                            container.Controls.Add(bp);
-
-                            label.BringToFront();
-                            bp.BringToFront();
-
-                            tableLayoutPanelItems.Controls.Add(container);
-                        }
+                        imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Connection Problem!");
                 }
             }
         }
+
+        /*    public void ShowAllItems()
+            {
+                using (MySqlConnection connection = new MySqlConnection(Login.con))
+                {
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+
+                    try
+                    {
+                        cmd.CommandText = "SELECT itemName, itemImg, base_price FROM tblItems";
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            tableLayoutPanelItems.Controls.Clear();
+
+                            tableLayoutPanelItems.ColumnCount = 3;
+
+                            while (reader.Read())
+                            {
+                                String itemName = reader.GetString("itemName");
+                                Decimal baseprice = reader.GetDecimal("base_price");
+                                byte[] imgData = (byte[])reader["itemImg"];
+
+                                PictureBox pictureBox = new PictureBox
+                                {
+                                    SizeMode = PictureBoxSizeMode.StretchImage,
+                                    Size = new Size(100, 100),
+                                    Tag = itemName
+                                };
+
+                                pictureBox.Image = ByteArrayToImage(imgData);
+
+                                Label label = new Label
+                                {
+                                    Text = itemName,
+                                    TextAlign = ContentAlignment.TopLeft,
+                                    Location = new Point(100, 0),
+                                    Font = new Font("Century Gothic", 12),
+                                    ForeColor = Color.FromArgb(228, 143, 69),
+                                    AutoSize = false,
+                                    Size = new Size(100, 68)
+                                };
+
+                                Label bp = new Label
+                                {
+                                    Text = "₱" + baseprice.ToString(),
+                                    TextAlign = ContentAlignment.BottomLeft,
+                                    Location = new Point(100, 75),
+                                    Font = new Font("Century Gothic", 10),
+                                    ForeColor = Color.FromArgb(228, 143, 69)
+                                };
+
+                                Panel container = new Panel();
+                                container.Controls.Add(pictureBox);
+                                container.Controls.Add(label);
+                                container.Controls.Add(bp);
+
+                                label.BringToFront();
+                                bp.BringToFront();
+
+                                tableLayoutPanelItems.Controls.Add(container);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }*/
 
         private static Image ByteArrayToImage(byte[] imgData)
         {
@@ -171,10 +197,9 @@ namespace Sales
                                                   "(" + numQuantity.Text + " * basePrice))";
                         addToCartCmd.ExecuteNonQuery();
 
-                        addToCartCmd.CommandText = "SELECT MAX(receiptId) from tblSales";
-                        rip = Convert.ToInt32(addToCartCmd.ExecuteScalar());
+                        int ordernum = generateRandomNum();
 
-                        lblRid.Text = "Order #: " + (rip + 1);
+                        lblOrderNum.Text = "ORD-" + ordernum;
                         //rip = Convert.ToInt32(addToCartCmd.ExecuteScalar());
                         //addToCartCmd.CommandText = "select max(id) from tblCart";
                         //int id = Convert.ToInt32(addToCartCmd.ExecuteScalar());
@@ -190,12 +215,12 @@ namespace Sales
                         MessageBox.Show("Success!");
                         showCart();
                         // para sa list of cart
-                        calculateTotalCmd.CommandText = "SELECT itemId FROM tblItems WHERE itemName = '" + cbItmName.Text + "'";
-                        int itmid = Convert.ToInt32(calculateTotalCmd.ExecuteScalar());
+                        /* calculateTotalCmd.CommandText = "SELECT itemId FROM tblItems WHERE itemName = '" + cbItmName.Text + "'";
+                         int itmid = Convert.ToInt32(calculateTotalCmd.ExecuteScalar());*/
 
-                        itemid.Add(itmid);
-                        qtt.Add(Int32.Parse(numQuantity.Text));
-                        lblTotal.Text = Convert.ToDecimal(result).ToString();
+                        /* itemid.Add(itmid);
+                         qtt.Add(Int32.Parse(numQuantity.Text));*/
+                        updateTotal();
                     }
                 }
             }
@@ -345,40 +370,138 @@ namespace Sales
                             return;
                         }
 
-                        cmd.CommandText = "DELETE FROM tblCart";
-                        cmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Order Placed!");
-                        showCart();
-
-                        cmd.CommandText = "SELECT MAX(receiptId) from tblSales";
-                        rip = Convert.ToInt32(cmd.ExecuteScalar());
-
-                        for (int i = 0; i < cartItemCount; i++)
+                        int receiptId = generateRandomNum();
+                        foreach (DataGridViewRow row in dataCart.Rows)
                         {
-                            cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + qtt[i] + " WHERE item_id = " + itemid[i];
+                            string itemName = row.Cells["NAME"].Value.ToString();
+                            int quantity = Convert.ToInt32(row.Cells["QUANTITY"].Value.ToString());
+                            decimal total_price = Convert.ToDecimal(row.Cells["TOTAL"].Value.ToString());
+
+                            cmd.CommandText = "INSERT INTO tblSales (receiptId, receiptDate, item_id, quantity, total_amount) VALUES (" + receiptId + ", CURDATE(), (SELECT itemId FROM tblItems WHERE itemName = '" + itemName + "'), " + quantity + ", " + total_price + ")";
                             cmd.ExecuteNonQuery();
 
-                            cmd.CommandText = "INSERT INTO tblSales (receiptId, receiptDate, item_id, quantity, total_amount) VALUES( " + rip.ToString() + " + 1, CURDATE(), " + itemid[i] + ", " + qtt[i] + ", " + qtt[i] + " * (SELECT base_price from tblItems where itemId = " + itemid[i] + "))";
+                            cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + quantity + " WHERE item_id = (SELECT itemId FROM tblItems WHERE itemName = '" + itemName + "')";
+
                             cmd.ExecuteNonQuery();
                         }
-
-                        //lblRid.Text = "Order #: ";
-                        //cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + numQuantity.Text + " WHERE item_id = " + cbItemId.Text;
-
-                        //cmd.ExecuteNonQuery();
-
-                        cbItmName.SelectedIndex = -1;
-                        numQuantity.Value = 0;
-                        lblTotal.Text = string.Empty;
-                        cbItmName.Text = string.Empty;
+                        cmd.CommandText = "DELETE FROM tblCart";
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Success");
+                        showCart();
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception a)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(a.Message);
             }
+            //List<List<object>> allValues = new List<List<object>>();
+
+            /* List<object> rowData = new List<object>();
+             rowData.Add(row.Cells["id"].Value);
+             rowData.Add(row.Cells["itemName"].Value);
+             rowData.Add(row.Cells["basePrice"].Value);
+             rowData.Add(row.Cells["total_price"].Value);
+             rowData.Add(row.Cells["quantity"].Value);
+             allValues.Add(rowData);*/
+
+            /* List<List<object>> allValues = new List<List<object>>();
+
+             foreach (DataGridViewRow row in dataCart.Rows)
+             {
+                 List<object> rowData = new List<object>();
+
+                 for (int i = 1; i <= 5; i++)
+                 {
+                     rowData.Add(row.Cells[i].Value);
+                 }
+
+                 allValues.Add(rowData);
+             }
+
+             // Format the values into a string
+             string message = "Extracted Values:\n";
+
+             foreach (List<object> rowData in allValues)
+             {
+                 message += string.Join(", ", rowData) + "\n";
+             }
+
+             MessageBox.Show(message, "Extracted Values", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+
+            //try
+            //{
+            //    using (MySqlConnection connection = new MySqlConnection(Login.con))
+            //    {
+            //        connection.Open();
+
+            //        using (MySqlCommand cmd = connection.CreateCommand())
+            //        {
+            //            cmd.CommandText = "SELECT COUNT(*) FROM tblCart";
+            //            int cartItemCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+            //            if (cartItemCount == 0)
+            //            {
+            //                MessageBox.Show("Cart is empty. Please add items to the cart before placing an order.");
+            //                return;
+            //            }
+
+            //            cmd.CommandText = "DELETE FROM tblCart";
+            //            cmd.ExecuteNonQuery();
+
+            //            MessageBox.Show("Order Placed!");
+            //            showCart();
+
+            //            //TESTING
+
+            //            /*
+            //             * ORIGINAL CODE
+            //                                    cmd.CommandText = "SELECT MAX(receiptId) from tblSales";
+            //                                    rip = Convert.ToInt32(cmd.ExecuteScalar());
+
+            //                                    for (int i = 0; i < cartItemCount; i++)
+            //                                    {
+            //                                        cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + qtt[i] + " WHERE item_id = " + itemid[i];
+            //                                        cmd.ExecuteNonQuery();
+
+            //                                        cmd.CommandText = "INSERT INTO tblSales (receiptId, receiptDate, item_id, quantity, total_amount) VALUES( " + rip.ToString() + " + 1, CURDATE(), " + itemid[i] + ", " + qtt[i] + ", " + qtt[i] + " * (SELECT base_price from tblItems where itemId = " + itemid[i] + "))";
+            //                                        cmd.ExecuteNonQuery();
+            //                                    }*/
+
+            //            //lblRid.Text = "Order #: ";
+            //            //cmd.CommandText = "UPDATE tblInventory SET quantity = quantity - " + numQuantity.Text + " WHERE item_id = " + cbItemId.Text;
+
+            //            //cmd.ExecuteNonQuery();
+
+            //          /*  cbItmName.SelectedIndex = -1;
+            //            numQuantity.Value = 0;
+            //            lblTotal.Text = string.Empty;
+            //            cbItmName.Text = string.Empty;*/
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            // FOR FUTURE PURPOSE
+            //foreach (DataGridViewRow row in dataCart.Rows)
+            //{
+            //    List<object> rowData = new List<object>();
+            //    rowData.Add(row.Cells["column1"].Value);
+            //    rowData.Add(row.Cells["column2"].Value);
+            //    rowData.Add(row.Cells["column3"].Value);
+            //    rowData.Add(row.Cells["column4"].Value);
+            //    rowData.Add(row.Cells["column5"].Value);
+            //    allValues.Add(rowData);
+            //}
+            //}
+        }
+
+        private int generateRandomNum()
+        {
+            Random random = new Random();
+            int randomNum = random.Next(100, 1000);
+            return randomNum;
         }
 
         private void showItmName()
@@ -421,7 +544,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "SELECT id, itemName, basePrice, total_price, quantity FROM tblCart inner join tblItems on tblItems.itemId = tblCart.item_id;";
+                    cmd.CommandText = "SELECT id as 'ID', itemName as 'NAME', basePrice as 'PRICE', total_price as 'TOTAL', quantity as 'QUANTITY' FROM tblCart inner join tblItems on tblItems.itemId = tblCart.item_id;";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -450,7 +573,7 @@ namespace Sales
                     {
                         if (reader.Read())
                         {
-                            lblWelcomeUser.Text = "Welcome! " + reader["userName"].ToString();
+                            lblWelcomeUser.Text = "Welcome!\n" + reader["userName"].ToString();
                         }
                     }
                 }
@@ -465,29 +588,29 @@ namespace Sales
         {
             if (e.ColumnIndex == buttonColumn.Index)
             {
-                DataGridViewTextBoxCell quantityCell = (DataGridViewTextBoxCell)dataCart.Rows[e.RowIndex].Cells["quantity"];
+                DataGridViewTextBoxCell quantityCell = (DataGridViewTextBoxCell)dataCart.Rows[e.RowIndex].Cells["QUANTITY"];
                 int currentQuantity = Convert.ToInt32(quantityCell.Value);
 
-                DataGridViewTextBoxCell totaPriceCell = (DataGridViewTextBoxCell)dataCart.Rows[e.RowIndex].Cells["total_price"];
+                DataGridViewTextBoxCell totaPriceCell = (DataGridViewTextBoxCell)dataCart.Rows[e.RowIndex].Cells["TOTAL"];
                 decimal currentTotalPrice = Convert.ToDecimal(totaPriceCell.Value);
 
-                if (currentQuantity > 0)
+                if (currentQuantity > 1)
                 {
                     currentQuantity--;
 
                     quantityCell.Value = currentQuantity.ToString();
 
-                    decimal unitPrice = Convert.ToDecimal(dataCart.Rows[e.RowIndex].Cells["basePrice"].Value);
+                    decimal unitPrice = Convert.ToDecimal(dataCart.Rows[e.RowIndex].Cells["PRICE"].Value);
 
                     decimal newTotalPrice = unitPrice * currentQuantity;
 
                     totaPriceCell.Value = newTotalPrice.ToString();
-
                     UpdateDatabase(e.RowIndex, currentQuantity);
+                    updateTotal();
                 }
                 else
                 {
-                    MessageBox.Show("Quantity cannot be negative.");
+                    MessageBox.Show("Quantity cannot be negative!");
                 }
             }
         }
@@ -499,15 +622,28 @@ namespace Sales
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
 
-                int productId = Convert.ToInt32(dataCart.Rows[rowIndex].Cells["id"].Value);
+                int productId = Convert.ToInt32(dataCart.Rows[rowIndex].Cells["ID"].Value);
 
-                decimal unitPrice = Convert.ToDecimal(dataCart.Rows[rowIndex].Cells["basePrice"].Value);
+                decimal unitPrice = Convert.ToDecimal(dataCart.Rows[rowIndex].Cells["PRICE"].Value);
 
                 decimal newTotalPrice = unitPrice * newQuantity;
 
                 cmd.CommandText = "UPDATE tblCart SET quantity = " + newQuantity + ", total_price = " + newTotalPrice + " WHERE id = " + productId + "";
 
                 cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void updateTotal()
+        {
+            decimal total_amount = 0;
+            foreach (DataGridViewRow row in dataCart.Rows)
+            {
+                if (decimal.TryParse(row.Cells["TOTAL"].Value.ToString(), out decimal value))
+                {
+                    total_amount += value;
+                    lblTotal.Text = total_amount.ToString();
+                }
             }
         }
     }
