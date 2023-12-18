@@ -46,7 +46,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select categoryId as 'CATEGORY ID', categoryName as 'CATEGORY NAME' From tblItemCategory order by categoryId desc";
+                    cmd.CommandText = "Select categoryId as 'CATEGORY ID', categoryName as 'CATEGORY NAME' From tblItemCategory ORDER by categoryId DESC";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
@@ -74,27 +74,25 @@ namespace Sales
                         MessageBox.Show("Please Input Fields!");
                         return;
                     }
+
+                    if (update == false)
+                    {
+                        cmd.CommandText = "INSERT INTO tblItemCategory(categoryName) VALUES ('" + txtCatName.Text + "')";
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Insert Successfull!");
+                    }
                     else
                     {
-                        if (update == false)
-                        {
-                            cmd.CommandText = "INSERT INTO tblItemCategory(categoryName) VALUES ('" + txtCatName.Text + "')";
-                            MessageBox.Show("Success Query!");
-                        }
-                        else
-                        {
-                            selectedUser = GetSelectedUserId();
-                            cmd.CommandText = "UPDATE tblItemCategory SET categoryName = '" + txtCatName.Text + "' WHERE categoryId = " + selectedUser + "";
-                            MessageBox.Show("Category Updated!");
-                        }
+                        selectedUser = GetSelectedUserId();
+                        cmd.CommandText = "UPDATE tblItemCategory SET categoryName = '" + txtCatName.Text + "' WHERE categoryId = " + selectedUser + "";
                         cmd.ExecuteNonQuery();
-                        txtCatName.Clear();
-
-                        txtCatName.Focus();
-                        showCategory();
-                        update = true;
-                        delete = true;
+                        MessageBox.Show("Category Updated!");
+                        resetUpdate();
                     }
+
+                    txtCatName.Clear();
+                    txtCatName.Focus();
+                    showCategory();
                 }
                 catch (Exception z)
                 {
@@ -107,8 +105,8 @@ namespace Sales
         {
             MessageBox.Show("Updating Category, Please Select Desired Row", "Message");
             update = true;
-            dataCategory.Enabled = true;
             btnDelete.Enabled = false;
+            dataCategory.Enabled = true;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -138,6 +136,14 @@ namespace Sales
             {
                 return -1;
             }
+        }
+
+        private void resetUpdate()
+        {
+            dataCategory.Enabled = false;
+            update = false;
+            delete = false;
+            btnDelete.Enabled = true;
         }
 
         private void dataCategory_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -172,7 +178,7 @@ namespace Sales
 
                     using (MySqlCommand del = connection.CreateCommand())
                     {
-                        del.CommandText = "DELETE FROM tblItemCategory WHERE userId = " + catId + "";
+                        del.CommandText = "DELETE FROM tblItemCategory WHERE categoryId = " + catId + "";
 
                         del.ExecuteNonQuery();
 

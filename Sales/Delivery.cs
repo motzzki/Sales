@@ -18,7 +18,6 @@ namespace Sales
             InitializeComponent();
             DateTime currentDateTime = DateTime.Now;
             lblDate.Text = currentDateTime.ToString();
-            Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
                 try
@@ -42,7 +41,7 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "Select deliveryId as 'DELIVERY ID', deliveryDate as DATE, itemName as 'NAME', quantity as QUANITY From tblDelivery inner join tblItems on tblItems.itemId = tblDelivery.item_id order by deliveryId DESC";
+                    cmd.CommandText = "Select deliveryId as 'DELIVERY ID', deliveryDate as DATE, itemName as 'NAME', quantity as QUANTITY From tblDelivery inner join tblItems on tblItems.itemId = tblDelivery.item_id order by deliveryId DESC";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);

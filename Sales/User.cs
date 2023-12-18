@@ -68,8 +68,7 @@ namespace Sales
 
                         cmd.CommandText = "UPDATE tblUser SET userName = '" + txtUser.Text + "', userPass = '" + txtPass.Text + "' WHERE userId = " + selectedUser + "";
                         MessageBox.Show("User Updated!");
-                        dataUser.Enabled = false;
-                        btnDelete.Enabled = true;
+                        resetUpdate();
                     }
 
                     cmd.ExecuteNonQuery();
@@ -99,6 +98,14 @@ namespace Sales
             {
                 return -1;
             }
+        }
+
+        private void resetUpdate()
+        {
+            dataUser.Enabled = false;
+            update = false;
+            delete = false;
+            btnDelete.Enabled = true;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

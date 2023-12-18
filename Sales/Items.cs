@@ -21,7 +21,6 @@ namespace Sales
             update = true;
             delete = true;
             panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
-            Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
                 try
@@ -46,13 +45,13 @@ namespace Sales
                 {
                     connection.Open();
                     MySqlCommand cmd = connection.CreateCommand();
-                    cmd.CommandText = "select itemId, itemName, supplierName, categoryName, base_price, itemImg from tblItems inner join tblSupplier on tblSupplier.supplierId = tblItems.supplier_id inner join tblItemCategory on tblItemCategory.CategoryId = tblItems.category_id order by itemId DESC;";
+                    cmd.CommandText = "select itemId as 'ID', itemName as 'NAME', supplierName as 'SUPPLIER NAME', categoryName as 'CATEGORY NAME', base_price as 'PRICE', itemImg as 'IMAGE' from tblItems inner join tblSupplier on tblSupplier.supplierId = tblItems.supplier_id inner join tblItemCategory on tblItemCategory.CategoryId = tblItems.category_id order by itemId DESC;";
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adap.Fill(ds);
                     dataItems.DataSource = ds.Tables[0].DefaultView;
 
-                    if (dataItems.Columns["itemImg"] is DataGridViewImageColumn imageColumn)
+                    if (dataItems.Columns["IMAGE"] is DataGridViewImageColumn imageColumn)
                     {
                         imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
                     }
