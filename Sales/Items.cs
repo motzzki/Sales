@@ -13,13 +13,15 @@ namespace Sales
 {
     public partial class Items : UserControl
     {
-        private Boolean update, delete;
+        private bool update = false, delete = false;
+        private int selectedUser;
+        private int indexRow;
 
         public Items()
         {
             InitializeComponent();
-            update = true;
-            delete = true;
+            Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
+
             panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -27,8 +29,8 @@ namespace Sales
                 {
                     connection.Open();
                     showItems();
-                    showSupplierId();
-                    showNameAndId();
+                    showSupplierName();
+                    showCatName();
                 }
                 catch
                 {
@@ -63,7 +65,7 @@ namespace Sales
             }
         }
 
-        private void showNameAndId()
+        private void showCatName()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -83,9 +85,9 @@ namespace Sales
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            cbCatId.DataSource = table;
-                            cbCatId.DisplayMember = "categoryName";
-                            //cbCatId.ValueMember = "categoryName";
+                            cbCatName.DataSource = table;
+                            cbCatName.DisplayMember = "categoryName";
+                            cbCatName.ValueMember = "categoryId";
                         }
                     }
                 }
@@ -96,7 +98,7 @@ namespace Sales
             }
         }
 
-        private void showSupplierId()
+        private void showSupplierName()
         {
             using (MySqlConnection connection = new MySqlConnection(Login.con))
             {
@@ -116,8 +118,9 @@ namespace Sales
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            cbSupId.DataSource = table;
-                            cbSupId.DisplayMember = "supplierName";
+                            cbSupName.DataSource = table;
+                            cbSupName.DisplayMember = "supplierName";
+                            cbSupName.ValueMember = "supplierId";
                         }
                     }
                 }
@@ -135,6 +138,10 @@ namespace Sales
             if (pbItemImg.Image != null)
             {
                 pbItemImg.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            else
+            {
+                MessageBox.Show("Please select Image.");
             }
 
             byte[] img_arr = new byte[ms.Length];
@@ -154,32 +161,28 @@ namespace Sales
                         MessageBox.Show("Please Input Fields!");
                         return;
                     }
-
-                    if (!update)
+                    if (update == false)
                     {
-                        cmd.CommandText = "UPDATE tblItems SET itemName = '" + txtItemName.Text + "', supplier_id = '" + cbSupId.Text + "', category_id = " + cbCatId.Text + ", base_price = " + txtPrice.Text + ", itemImg = @image WHERE itemId = " + txtItemID.Text + "";
-                        MessageBox.Show("Item Updated!");
-                        txtItemID.Clear();
+                        cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "'," + cbSupName.SelectedValue.ToString() + ", " + cbCatName.SelectedValue.ToString() + ", " + txtPrice.Text + ", @image)";
+                        MessageBox.Show("Success Query!");
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "', (select supplierId from tblSupplier where supplierName = '" + cbSupId.Text + "'), (select categoryId from tblItemCategory where categoryName = '" + cbCatId.Text + "'), " + txtPrice.Text + ", @image)";
-                        MessageBox.Show("Success Query!");
+                        selectedUser = GetSelectedUserId();
+
+                        cmd.CommandText = "UPDATE tblItems SET itemName = '" + txtItemName.Text + "', supplier_id = '" + cbSupName.SelectedValue.ToString() + "', category_id = " + cbCatName.SelectedValue.ToString() + ", base_price = " + txtPrice.Text + ", itemImg = @image WHERE itemId = " + selectedUser + "";
+                        MessageBox.Show("Item Updated!");
+                        resetUpdate();
                     }
 
                     cmd.Parameters.AddWithValue("@image", img_arr);
                     cmd.ExecuteNonQuery();
 
                     txtItemName.Clear();
-                    cbSupId.SelectedIndex = -1;
-                    cbCatId.SelectedIndex = -1;
+                    cbSupName.SelectedIndex = -1;
+                    cbCatName.SelectedIndex = -1;
                     txtPrice.Value = 0;
-                    txtItemID.Focus();
 
-                    showItems();
-
-                    update = true;
-                    delete = true;
                     showItems();
                 }
                 catch (Exception ex)
@@ -208,57 +211,100 @@ namespace Sales
             }
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        public int GetSelectedUserId()
         {
-            panel5.Visible = false;
-            if (!delete)
+            if (dataItems.SelectedRows.Count >= 0)
             {
-                using (MySqlConnection connection = new MySqlConnection(Login.con))
-                {
-                    connection.Open();
-                    MySqlCommand cmd = connection.CreateCommand();
-                    cmd.Connection = connection;
-                    try
-                    {
-                        cmd.CommandText = "DELETE FROM tblItems WHERE itemId = " + txtItemID.Text + "";
-                        MessageBox.Show("Item Deleted!");
-                        cmd.ExecuteNonQuery();
-                        delete = true;
-                        showItems();
-                    }
-                    catch (Exception z)
-                    {
-                        MessageBox.Show(z.Message);
-                    }
-                }
+                return Convert.ToInt32(dataItems.SelectedRows[0].Cells["ID"].Value);
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            panel5.Visible = false;
-            update = true;
-            delete = true;
+            else
+            {
+                return -1;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            btnUpdate.Enabled = false;
+            DialogResult result = MessageBox.Show("Do you want to delete? Please Select Desired Row", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
             {
-                delete = false;
-                panel5.Visible = true;
+                btnUpdate.Enabled = true;
+                return;
             }
             else
             {
-                return;
+                //dataItems.Enabled = true;
+                delete = true;
+                update = false;
+            }
+        }
+
+        private void dataItems_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedUser = GetSelectedUserId();
+            indexRow = e.RowIndex;
+            DataGridViewRow row = dataItems.Rows[indexRow];
+            if (update)
+            {
+                txtItemName.Text = row.Cells[1].Value.ToString();
+                cbSupName.Text = row.Cells[2].Value.ToString();
+                cbCatName.Text = row.Cells[3].Value.ToString();
+                txtPrice.Text = row.Cells[4].Value.ToString();
+            }
+
+            if (delete)
+            {
+                DialogResult result = MessageBox.Show("Confirm Delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteUser(selectedUser);
+                }
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            panel5.Visible = true;
+            MessageBox.Show("Updating Items, Please Select Desired Row", "Message");
+            update = true;
+
+            btnDelete.Enabled = false;
+        }
+
+        private void resetUpdate()
+        {
             update = false;
+            delete = false;
+            btnDelete.Enabled = true;
+        }
+
+        private void DeleteUser(int itemId)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(Login.con))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand del = connection.CreateCommand())
+                    {
+                        del.CommandText = "DELETE FROM tblItems WHERE itemId = " + itemId + "";
+
+                        del.ExecuteNonQuery();
+
+                        MessageBox.Show("Item Deleted!");
+                        showItems();
+                        delete = false;
+                        btnUpdate.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

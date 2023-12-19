@@ -104,7 +104,7 @@ namespace Sales
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Updating User, Please Select Desired Row", "Message");
+            MessageBox.Show("Updating Supplier, Please Select Desired Row", "Message");
             update = true;
             dataSupplier.Enabled = true;
             btnDelete.Enabled = false;

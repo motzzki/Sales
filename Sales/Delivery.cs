@@ -74,8 +74,9 @@ namespace Sales
                             DataRow dr = table.NewRow();
                             table.Rows.InsertAt(dr, 0);
 
-                            cmbItmId.DataSource = table;
-                            cmbItmId.DisplayMember = "itemName";
+                            cbItemName.DataSource = table;
+                            cbItemName.DisplayMember = "itemName";
+                            cbItemName.ValueMember = "itemId";
                         }
                     }
                 }
@@ -98,19 +99,19 @@ namespace Sales
                 {
                     //string formattedDate = dateitemDate.Value.ToString("yyyy-MM-dd");
 
-                    cmd.CommandText = "SELECT COUNT(*) FROM tblInventory WHERE item_id = (SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "')";
+                    cmd.CommandText = "SELECT COUNT(*) FROM tblInventory WHERE item_id = " + cbItemName.SelectedValue.ToString() + "";
                     int existingRecordCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES (CURDATE(),  (SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "'), '" + numQuantity.Text + "')";
+                    cmd.CommandText = "INSERT INTO tblDelivery(deliveryDate, item_id, quantity) VALUES (CURDATE(), " + cbItemName.SelectedValue.ToString() + ", '" + numQuantity.Text + "')";
                     cmd.ExecuteNonQuery();
 
                     if (existingRecordCount > 0)
                     {
-                        cmd.CommandText = "UPDATE tblInventory SET quantity = quantity + " + numQuantity.Text + " WHERE item_id = (SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "')";
+                        cmd.CommandText = "UPDATE tblInventory SET quantity = quantity + " + numQuantity.Text + " WHERE item_id = " + cbItemName.SelectedValue.ToString() + "";
                     }
                     else
                     {
-                        cmd.CommandText = "INSERT INTO tblInventory (item_id, quantity) VALUES ((SELECT itemId FROM tblItems WHERE itemName = '" + cmbItmId.Text + "'), '" + numQuantity.Text + "')";
+                        cmd.CommandText = "INSERT INTO tblInventory (item_id, quantity) VALUES ( " + cbItemName.SelectedValue.ToString() + ", '" + numQuantity.Text + "')";
                     }
 
                     cmd.ExecuteNonQuery();

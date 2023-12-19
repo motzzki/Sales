@@ -39,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblItemCategory = new System.Windows.Forms.Label();
             this.dataDelivery = new System.Windows.Forms.DataGridView();
-            this.cmbItmId = new System.Windows.Forms.ComboBox();
+            this.cbItemName = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.lblDate = new System.Windows.Forms.Label();
@@ -169,22 +169,22 @@
             this.dataDelivery.Size = new System.Drawing.Size(591, 283);
             this.dataDelivery.TabIndex = 44;
             // 
-            // cmbItmId
+            // cbItemName
             // 
-            this.cmbItmId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbItmId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbItmId.FormattingEnabled = true;
-            this.cmbItmId.Location = new System.Drawing.Point(91, 407);
-            this.cmbItmId.Name = "cmbItmId";
-            this.cmbItmId.Size = new System.Drawing.Size(284, 31);
-            this.cmbItmId.TabIndex = 45;
+            this.cbItemName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbItemName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbItemName.FormattingEnabled = true;
+            this.cbItemName.Location = new System.Drawing.Point(91, 407);
+            this.cbItemName.Name = "cbItemName";
+            this.cbItemName.Size = new System.Drawing.Size(284, 31);
+            this.cbItemName.TabIndex = 45;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.numQuantity);
             this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.cmbItmId);
+            this.panel1.Controls.Add(this.cbItemName);
             this.panel1.Controls.Add(this.lblItemCategory);
             this.panel1.Controls.Add(this.dataDelivery);
             this.panel1.Controls.Add(this.label1);
@@ -203,7 +203,7 @@
             this.numQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numQuantity.Location = new System.Drawing.Point(91, 514);
             this.numQuantity.Maximum = new decimal(new int[] {
-            int.MaxValue,
+            2147483647,
             0,
             0,
             0});
@@ -244,7 +244,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblItemCategory;
         private System.Windows.Forms.DataGridView dataDelivery;
-        private System.Windows.Forms.ComboBox cmbItmId;
+        private System.Windows.Forms.ComboBox cbItemName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.NumericUpDown numQuantity;

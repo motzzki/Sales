@@ -40,24 +40,18 @@
             this.lblItemCategory = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnInsertImg = new System.Windows.Forms.Button();
-            this.cbCatId = new System.Windows.Forms.ComboBox();
-            this.cbSupId = new System.Windows.Forms.ComboBox();
+            this.cbCatName = new System.Windows.Forms.ComboBox();
+            this.cbSupName = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPrice = new System.Windows.Forms.NumericUpDown();
             this.dataItems = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pbItemImg = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnEnter = new System.Windows.Forms.Button();
-            this.txtItemID = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemImg)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -170,27 +164,27 @@
             this.btnInsertImg.UseVisualStyleBackColor = false;
             this.btnInsertImg.Click += new System.EventHandler(this.btnInsertImg_Click);
             // 
-            // cbCatId
+            // cbCatName
             // 
-            this.cbCatId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCatId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCatId.FormattingEnabled = true;
-            this.cbCatId.Location = new System.Drawing.Point(53, 469);
-            this.cbCatId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbCatId.Name = "cbCatId";
-            this.cbCatId.Size = new System.Drawing.Size(281, 28);
-            this.cbCatId.TabIndex = 50;
+            this.cbCatName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCatName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCatName.FormattingEnabled = true;
+            this.cbCatName.Location = new System.Drawing.Point(53, 469);
+            this.cbCatName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCatName.Name = "cbCatName";
+            this.cbCatName.Size = new System.Drawing.Size(281, 28);
+            this.cbCatName.TabIndex = 50;
             // 
-            // cbSupId
+            // cbSupName
             // 
-            this.cbSupId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSupId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSupId.FormattingEnabled = true;
-            this.cbSupId.Location = new System.Drawing.Point(53, 304);
-            this.cbSupId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbSupId.Name = "cbSupId";
-            this.cbSupId.Size = new System.Drawing.Size(281, 28);
-            this.cbSupId.TabIndex = 51;
+            this.cbSupName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSupName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSupName.FormattingEnabled = true;
+            this.cbSupName.Location = new System.Drawing.Point(53, 304);
+            this.cbSupName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSupName.Name = "cbSupName";
+            this.cbSupName.Size = new System.Drawing.Size(281, 28);
+            this.cbSupName.TabIndex = 51;
             // 
             // panel1
             // 
@@ -199,10 +193,10 @@
             this.panel1.Controls.Add(this.dataItems);
             this.panel1.Controls.Add(this.lblItemCategory);
             this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.cbSupId);
+            this.panel1.Controls.Add(this.cbSupName);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbCatId);
+            this.panel1.Controls.Add(this.cbCatName);
             this.panel1.Controls.Add(this.txtItemName);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.pbItemImg);
@@ -275,6 +269,7 @@
             this.dataItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataItems.Size = new System.Drawing.Size(659, 634);
             this.dataItems.TabIndex = 55;
+            this.dataItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataItems_CellClick);
             // 
             // btnDelete
             // 
@@ -319,75 +314,10 @@
             this.pbItemImg.TabIndex = 47;
             this.pbItemImg.TabStop = false;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Controls.Add(this.btnCancel);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.btnEnter);
-            this.panel5.Controls.Add(this.txtItemID);
-            this.panel5.Location = new System.Drawing.Point(405, 306);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(288, 174);
-            this.panel5.TabIndex = 55;
-            this.panel5.Visible = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Chocolate;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnCancel.Location = new System.Drawing.Point(147, 118);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 36);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(37, 38);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Enter item ID:";
-            // 
-            // btnEnter
-            // 
-            this.btnEnter.BackColor = System.Drawing.Color.Chocolate;
-            this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.btnEnter.Location = new System.Drawing.Point(41, 118);
-            this.btnEnter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(100, 36);
-            this.btnEnter.TabIndex = 1;
-            this.btnEnter.Text = "ENTER";
-            this.btnEnter.UseVisualStyleBackColor = false;
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
-            // 
-            // txtItemID
-            // 
-            this.txtItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.txtItemID.Location = new System.Drawing.Point(41, 62);
-            this.txtItemID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtItemID.Name = "txtItemID";
-            this.txtItemID.Size = new System.Drawing.Size(196, 22);
-            this.txtItemID.TabIndex = 0;
-            // 
             // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Items";
@@ -397,8 +327,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemImg)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -413,16 +341,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnInsertImg;
         private System.Windows.Forms.PictureBox pbItemImg;
-        private System.Windows.Forms.ComboBox cbCatId;
-        private System.Windows.Forms.ComboBox cbSupId;
+        private System.Windows.Forms.ComboBox cbCatName;
+        private System.Windows.Forms.ComboBox cbSupName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.TextBox txtItemID;
         private System.Windows.Forms.DataGridView dataItems;
         private System.Windows.Forms.NumericUpDown txtPrice;
     }
