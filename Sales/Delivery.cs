@@ -115,7 +115,7 @@ namespace Sales
                     }
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Success Query!");
+                    MessageBox.Show("Success Delivery!");
                     showDelivery();
                 }
                 catch (Exception z)

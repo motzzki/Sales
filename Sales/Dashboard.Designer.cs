@@ -47,10 +47,10 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnDelivery = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.btnRestore = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SubMain.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,8 +74,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btnRestore);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(247, 788);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(185, 640);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -83,9 +84,10 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(248, 229);
+            this.panel2.Size = new System.Drawing.Size(186, 186);
             this.panel2.TabIndex = 2;
             // 
             // SubMain
@@ -96,11 +98,12 @@
             this.SubMain.Controls.Add(this.btnMain);
             this.SubMain.Controls.Add(this.btnSupplier);
             this.SubMain.Controls.Add(this.btnItems);
-            this.SubMain.Location = new System.Drawing.Point(3, 238);
-            this.SubMain.MaximumSize = new System.Drawing.Size(273, 269);
-            this.SubMain.MinimumSize = new System.Drawing.Size(273, 60);
+            this.SubMain.Location = new System.Drawing.Point(2, 192);
+            this.SubMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubMain.MaximumSize = new System.Drawing.Size(205, 219);
+            this.SubMain.MinimumSize = new System.Drawing.Size(205, 49);
             this.SubMain.Name = "SubMain";
-            this.SubMain.Size = new System.Drawing.Size(273, 60);
+            this.SubMain.Size = new System.Drawing.Size(205, 49);
             this.SubMain.TabIndex = 6;
             // 
             // btnUser
@@ -110,14 +113,15 @@
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUser.ForeColor = System.Drawing.Color.Transparent;
             this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.Location = new System.Drawing.Point(3, 69);
+            this.btnUser.Location = new System.Drawing.Point(2, 56);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnUser.Size = new System.Drawing.Size(267, 43);
+            this.btnUser.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnUser.Size = new System.Drawing.Size(200, 35);
             this.btnUser.TabIndex = 0;
             this.btnUser.Text = "Users";
             this.btnUser.UseVisualStyleBackColor = false;
@@ -130,14 +134,15 @@
             this.btnCategory.FlatAppearance.BorderSize = 0;
             this.btnCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategory.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategory.ForeColor = System.Drawing.Color.Transparent;
             this.btnCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnCategory.Image")));
             this.btnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategory.Location = new System.Drawing.Point(3, 118);
+            this.btnCategory.Location = new System.Drawing.Point(2, 96);
+            this.btnCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCategory.Size = new System.Drawing.Size(267, 43);
+            this.btnCategory.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnCategory.Size = new System.Drawing.Size(200, 35);
             this.btnCategory.TabIndex = 0;
             this.btnCategory.Text = "Item Category";
             this.btnCategory.UseVisualStyleBackColor = false;
@@ -151,14 +156,15 @@
             this.btnMain.FlatAppearance.BorderSize = 0;
             this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMain.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMain.ForeColor = System.Drawing.Color.Transparent;
             this.btnMain.Image = ((System.Drawing.Image)(resources.GetObject("btnMain.Image")));
             this.btnMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMain.Location = new System.Drawing.Point(-10, -1);
+            this.btnMain.Location = new System.Drawing.Point(-8, -1);
+            this.btnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMain.Name = "btnMain";
-            this.btnMain.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMain.Size = new System.Drawing.Size(261, 61);
+            this.btnMain.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnMain.Size = new System.Drawing.Size(196, 50);
             this.btnMain.TabIndex = 0;
             this.btnMain.Text = "      Maintenance";
             this.btnMain.UseVisualStyleBackColor = false;
@@ -171,14 +177,15 @@
             this.btnSupplier.FlatAppearance.BorderSize = 0;
             this.btnSupplier.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupplier.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupplier.ForeColor = System.Drawing.Color.Transparent;
             this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
             this.btnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupplier.Location = new System.Drawing.Point(3, 167);
+            this.btnSupplier.Location = new System.Drawing.Point(2, 136);
+            this.btnSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnSupplier.Size = new System.Drawing.Size(267, 43);
+            this.btnSupplier.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnSupplier.Size = new System.Drawing.Size(200, 35);
             this.btnSupplier.TabIndex = 0;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.UseVisualStyleBackColor = false;
@@ -191,14 +198,15 @@
             this.btnItems.FlatAppearance.BorderSize = 0;
             this.btnItems.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnItems.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItems.ForeColor = System.Drawing.Color.Transparent;
             this.btnItems.Image = ((System.Drawing.Image)(resources.GetObject("btnItems.Image")));
             this.btnItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnItems.Location = new System.Drawing.Point(3, 216);
+            this.btnItems.Location = new System.Drawing.Point(2, 176);
+            this.btnItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnItems.Name = "btnItems";
-            this.btnItems.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnItems.Size = new System.Drawing.Size(267, 43);
+            this.btnItems.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnItems.Size = new System.Drawing.Size(200, 35);
             this.btnItems.TabIndex = 0;
             this.btnItems.Text = "Items";
             this.btnItems.UseVisualStyleBackColor = false;
@@ -208,9 +216,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.btnPOS);
-            this.panel3.Location = new System.Drawing.Point(3, 304);
+            this.panel3.Location = new System.Drawing.Point(2, 245);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(240, 74);
+            this.panel3.Size = new System.Drawing.Size(180, 60);
             this.panel3.TabIndex = 2;
             // 
             // btnPOS
@@ -222,25 +231,27 @@
             this.btnPOS.FlatAppearance.BorderSize = 0;
             this.btnPOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPOS.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPOS.ForeColor = System.Drawing.Color.White;
             this.btnPOS.Image = ((System.Drawing.Image)(resources.GetObject("btnPOS.Image")));
             this.btnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPOS.Location = new System.Drawing.Point(0, 0);
+            this.btnPOS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPOS.Name = "btnPOS";
-            this.btnPOS.Size = new System.Drawing.Size(248, 74);
+            this.btnPOS.Size = new System.Drawing.Size(186, 60);
             this.btnPOS.TabIndex = 1;
             this.btnPOS.Text = "POS";
             this.btnPOS.UseVisualStyleBackColor = false;
-            this.btnPOS.Click += new System.EventHandler(this.button2_Click);
+            this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.btnSales);
-            this.panel5.Location = new System.Drawing.Point(3, 384);
+            this.panel5.Location = new System.Drawing.Point(2, 309);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(240, 74);
+            this.panel5.Size = new System.Drawing.Size(180, 60);
             this.panel5.TabIndex = 4;
             // 
             // btnSales
@@ -252,13 +263,14 @@
             this.btnSales.FlatAppearance.BorderSize = 0;
             this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSales.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSales.ForeColor = System.Drawing.Color.White;
             this.btnSales.Image = ((System.Drawing.Image)(resources.GetObject("btnSales.Image")));
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSales.Location = new System.Drawing.Point(0, 0);
+            this.btnSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSales.Name = "btnSales";
-            this.btnSales.Size = new System.Drawing.Size(246, 74);
+            this.btnSales.Size = new System.Drawing.Size(184, 60);
             this.btnSales.TabIndex = 5;
             this.btnSales.Text = "Sales";
             this.btnSales.UseVisualStyleBackColor = false;
@@ -268,9 +280,10 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.Controls.Add(this.btnInventory);
-            this.panel6.Location = new System.Drawing.Point(3, 464);
+            this.panel6.Location = new System.Drawing.Point(2, 373);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(240, 74);
+            this.panel6.Size = new System.Drawing.Size(180, 60);
             this.panel6.TabIndex = 5;
             // 
             // btnInventory
@@ -283,13 +296,14 @@
             this.btnInventory.FlatAppearance.BorderSize = 0;
             this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventory.ForeColor = System.Drawing.SystemColors.Window;
             this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
             this.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventory.Location = new System.Drawing.Point(0, 0);
+            this.btnInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(246, 74);
+            this.btnInventory.Size = new System.Drawing.Size(184, 60);
             this.btnInventory.TabIndex = 3;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.UseVisualStyleBackColor = false;
@@ -299,9 +313,10 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.btnDelivery);
-            this.panel4.Location = new System.Drawing.Point(3, 544);
+            this.panel4.Location = new System.Drawing.Point(2, 437);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(240, 74);
+            this.panel4.Size = new System.Drawing.Size(180, 60);
             this.panel4.TabIndex = 3;
             // 
             // btnDelivery
@@ -312,13 +327,14 @@
             this.btnDelivery.FlatAppearance.BorderSize = 0;
             this.btnDelivery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelivery.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelivery.ForeColor = System.Drawing.Color.White;
             this.btnDelivery.Image = ((System.Drawing.Image)(resources.GetObject("btnDelivery.Image")));
             this.btnDelivery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelivery.Location = new System.Drawing.Point(0, 0);
+            this.btnDelivery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelivery.Name = "btnDelivery";
-            this.btnDelivery.Size = new System.Drawing.Size(246, 74);
+            this.btnDelivery.Size = new System.Drawing.Size(184, 60);
             this.btnDelivery.TabIndex = 4;
             this.btnDelivery.Text = "Delivery";
             this.btnDelivery.UseVisualStyleBackColor = false;
@@ -331,18 +347,40 @@
             this.btnBackup.FlatAppearance.BorderSize = 0;
             this.btnBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackup.ForeColor = System.Drawing.Color.White;
             this.btnBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.Image")));
             this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackup.Location = new System.Drawing.Point(3, 624);
+            this.btnBackup.Location = new System.Drawing.Point(2, 501);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(120, 50);
+            this.btnBackup.Size = new System.Drawing.Size(90, 41);
             this.btnBackup.TabIndex = 7;
             this.btnBackup.Text = "Backup";
             this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.BackColor = System.Drawing.Color.Transparent;
+            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestore.FlatAppearance.BorderSize = 0;
+            this.btnRestore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
+            this.btnRestore.Image = ((System.Drawing.Image)(resources.GetObject("btnRestore.Image")));
+            this.btnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRestore.Location = new System.Drawing.Point(96, 501);
+            this.btnRestore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(86, 41);
+            this.btnRestore.TabIndex = 8;
+            this.btnRestore.Text = "Restore";
+            this.btnRestore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // MainTimer
             // 
@@ -353,10 +391,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(238)))), ((int)(((byte)(234)))));
-            this.label1.Font = new System.Drawing.Font("Brush Script MT", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 246);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(50, 200);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(909, 166);
+            this.label1.Size = new System.Drawing.Size(962, 126);
             this.label1.TabIndex = 1;
             this.label1.Text = "\"Good ideas start with brainstorming, \r\ngreat ideas start with coffee\"";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -366,46 +405,27 @@
             this.panelContent.BackColor = System.Drawing.Color.Transparent;
             this.panelContent.Controls.Add(this.label1);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelContent.Location = new System.Drawing.Point(240, 0);
+            this.panelContent.Location = new System.Drawing.Point(180, 0);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1100, 788);
+            this.panelContent.Size = new System.Drawing.Size(825, 640);
             this.panelContent.TabIndex = 2;
-            // 
-            // btnRestore
-            // 
-            this.btnRestore.BackColor = System.Drawing.Color.Transparent;
-            this.btnRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestore.FlatAppearance.BorderSize = 0;
-            this.btnRestore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestore.ForeColor = System.Drawing.Color.White;
-            this.btnRestore.Image = ((System.Drawing.Image)(resources.GetObject("btnRestore.Image")));
-            this.btnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRestore.Location = new System.Drawing.Point(129, 624);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(114, 50);
-            this.btnRestore.TabIndex = 8;
-            this.btnRestore.Text = "Restore";
-            this.btnRestore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRestore.UseVisualStyleBackColor = false;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1340, 788);
+            this.ClientSize = new System.Drawing.Size(1005, 640);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.SubMain.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

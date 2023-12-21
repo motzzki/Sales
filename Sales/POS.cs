@@ -25,12 +25,12 @@ namespace Sales
         public POS()
         {
             InitializeComponent();
+
             Login.con = "Server=localhost;Database=dbsales;User=root;Password=root;";
+            lblWelcomeUser.Text = "Welcome! \n" + Login.welcomeUser;
             showAllItems();
             showCart();
-
             showItmName();
-            showuser();
 
             buttonColumn.UseColumnTextForButtonValue = true;
             buttonColumn.HeaderText = "ACTION";
@@ -200,29 +200,6 @@ namespace Sales
             }
         }
 
-        /* private void btnCancel_Click(object sender, EventArgs e)
-         {
-             using (MySqlConnection connection = new MySqlConnection(Login.con))
-             {
-                 try
-                 {
-                     connection.Open();
-                     using (MySqlCommand cmd = connection.CreateCommand())
-                     {
-                         MessageBox.Show(cartId.ToString());
-                         cmd.CommandText = "Delete from tblCart where id = " + cartId + "";
-                         cmd.ExecuteNonQuery();
-                         MessageBox.Show("DELETED");
-                     }
-                     //showtblCart();
-                 }
-                 catch (Exception ex)
-                 {
-                     MessageBox.Show(ex.Message);
-                 }
-             }
-         }*/
-
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
             try
@@ -368,32 +345,6 @@ namespace Sales
             }
         }
 
-        private void showuser()
-        {
-            using (MySqlConnection connection = new MySqlConnection(Login.con))
-            {
-                try
-                {
-                    connection.Open();
-                    MySqlCommand cmd = connection.CreateCommand();
-                    string user = Login.welcomeUser;
-                    cmd.CommandText = "SELECT userName FROM tblUser WHERE userName = '" + user + "'";
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            lblWelcomeUser.Text = "Welcome!\n" + reader["userName"].ToString();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
         private void dataCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == buttonColumn.Index)
@@ -466,5 +417,31 @@ namespace Sales
                 }
             }
         }
+
+        /*private void showuser()
+       {
+           using (MySqlConnection connection = new MySqlConnection(Login.con))
+           {
+               try
+               {
+                   connection.Open();
+                   MySqlCommand cmd = connection.CreateCommand();
+                   string user = Login.welcomeUser;
+                   cmd.CommandText = "SELECT userName FROM tblUser WHERE userName = '" + user + "'";
+
+                   using (MySqlDataReader reader = cmd.ExecuteReader())
+                   {
+                       if (reader.Read())
+                       {
+                           lblWelcomeUser.Text = "Welcome!\n" + reader["userName"].ToString();
+                       }
+                   }
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show(ex.Message);
+               }
+           }
+       }*/
     }
 }

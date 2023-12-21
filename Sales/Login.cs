@@ -13,7 +13,7 @@ namespace Sales
 {
     public partial class Login : Form
     {
-        public static String con, welcomeUser;
+        public static string con, welcomeUser;
 
         public Login()
         {
@@ -45,12 +45,14 @@ namespace Sales
                                 Dashboard dashboard = new Dashboard();
                                 dashboard.Show();
                                 Reset();
+
                                 this.Hide();
                             }
                             else
                             {
                                 MessageBox.Show("Invalid Credentials!", "Error");
                                 Reset();
+
                                 return;
                             }
                         }
@@ -84,10 +86,10 @@ namespace Sales
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Connect();
-            Dashboard dashboard = new Dashboard();
-            dashboard.Show();
-            this.Hide();
+            Connect();
+            /* Dashboard dashboard = new Dashboard();
+             dashboard.Show();*/
+            //this.Hide();
         }
     }
 }

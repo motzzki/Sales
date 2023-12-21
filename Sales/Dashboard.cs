@@ -54,13 +54,6 @@ namespace Sales
             MainTimer.Start();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            POS pos = new POS();
-            pos.Show();
-            this.Close();
-        }
-
         private void addUser(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -103,12 +96,6 @@ namespace Sales
         {
             Inventory inventory = new Inventory();
             addUser(inventory);
-        }
-
-        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
 
         private void btnSales_Click(object sender, EventArgs e)
@@ -176,6 +163,13 @@ namespace Sales
             {
                 filePathName = string.Empty;
             }
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            POS pos = new POS();
+            pos.Show();
+            this.Hide();
         }
     }
 }
