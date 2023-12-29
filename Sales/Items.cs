@@ -139,10 +139,6 @@ namespace Sales
             {
                 pbItemImg.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
-            else
-            {
-                MessageBox.Show("Please select Image.");
-            }
 
             byte[] img_arr = new byte[ms.Length];
             ms.Seek(0, System.IO.SeekOrigin.Begin);
@@ -164,7 +160,7 @@ namespace Sales
                     if (update == false)
                     {
                         cmd.CommandText = "INSERT INTO tblItems(itemName, supplier_id, category_id, base_price, itemImg) VALUES ('" + txtItemName.Text + "'," + cbSupName.SelectedValue.ToString() + ", " + cbCatName.SelectedValue.ToString() + ", " + txtPrice.Text + ", @image)";
-                        MessageBox.Show("Success Query!");
+                        MessageBox.Show("Insert Successful!");
                     }
                     else
                     {
@@ -182,7 +178,7 @@ namespace Sales
                     cbSupName.SelectedIndex = -1;
                     cbCatName.SelectedIndex = -1;
                     txtPrice.Value = 0;
-
+                    pbItemImg.Image = Properties.Resources.defaultcoffee;
                     showItems();
                 }
                 catch (Exception ex)

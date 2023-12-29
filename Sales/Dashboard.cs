@@ -15,10 +15,13 @@ namespace Sales
     {
         private bool Maincollapse;
         private Inventory inventory = new Inventory();
+        private Login login = new Login();
 
         public Dashboard()
         {
             InitializeComponent();
+
+            panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
             Maincollapse = true;
             btnUser.Cursor = Cursors.Hand;
             btnSupplier.Cursor = Cursors.Hand;
@@ -133,17 +136,20 @@ namespace Sales
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            string sSelectedFolder, filePathName;
+            string selectedFolder, filePathName;
             FolderBrowserDialog fbd = new FolderBrowserDialog();
+
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                sSelectedFolder = fbd.SelectedPath;
-                filePathName = System.IO.Path.Combine(sSelectedFolder, "ThisIsTheBackUpFile" + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + ".bak");
-                //flf.BackupRestore(filePathName, "Backup");
+                selectedFolder = fbd.SelectedPath;
+
+                filePathName = System.IO.Path.Combine(selectedFolder, "BackupFile_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".bak");
+
+                BackupRestore(filePathName, "Backup");
             }
             else
             {
-                sSelectedFolder = string.Empty;
+                selectedFolder = string.Empty;
             }
         }
 
@@ -157,7 +163,7 @@ namespace Sales
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
                 filePathName = choofdlog.FileName;
-                //flf.BackupRestore(filePathName, "Restore");
+                BackupRestore(filePathName, "Restore");
             }
             else
             {

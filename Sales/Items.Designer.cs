@@ -305,7 +305,7 @@
             // 
             this.pbItemImg.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pbItemImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbItemImg.Image = global::Sales.Properties.Resources._default;
+            this.pbItemImg.Image = global::Sales.Properties.Resources.defaultcoffee;
             this.pbItemImg.Location = new System.Drawing.Point(57, 124);
             this.pbItemImg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbItemImg.Name = "pbItemImg";

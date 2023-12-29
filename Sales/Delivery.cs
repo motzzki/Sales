@@ -16,6 +16,7 @@ namespace Sales
         public Delivery()
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
             DateTime currentDateTime = DateTime.Now;
             lblDate.Text = currentDateTime.ToString();
             using (MySqlConnection connection = new MySqlConnection(Login.con))
@@ -123,11 +124,6 @@ namespace Sales
                     MessageBox.Show(z.Message);
                 }
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            panel1.BackColor = Color.FromArgb(180, 0, 0, 0);
         }
     }
 }

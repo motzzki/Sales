@@ -73,6 +73,16 @@ namespace Sales.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap defaultcoffee {
+            get {
+                object obj = ResourceManager.GetObject("defaultcoffee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gelo {
             get {
                 object obj = ResourceManager.GetObject("gelo", resourceCulture);
