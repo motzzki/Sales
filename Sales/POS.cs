@@ -31,6 +31,7 @@ namespace Sales
             showAllItems();
             showCart();
             showItmName();
+            updateTotal();
 
             buttonColumn.UseColumnTextForButtonValue = true;
             buttonColumn.HeaderText = "ACTION";
